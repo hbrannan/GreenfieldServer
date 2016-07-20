@@ -12,6 +12,7 @@ module.exports = {
     console.log('this is an extention')
   },
   getAllPhotos: function  () {
+    console.log(schemas.Photo);
     schemas.Photo.findAll({}, function (results) {
       if (results) {
         return results;

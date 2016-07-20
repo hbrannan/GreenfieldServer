@@ -122,7 +122,9 @@ Photo.hasMany(Hashtag);
 /////may want Photo to belong to user as an extension !!
 console.log(sequelize.models);
 
-module.exports = User;
-module.exports = Photo;
-module.exports = Caption;
-module.exports = Hashtag;
+module.exports = {
+	User: User,
+	Photo: Photo,
+	Caption: Caption,
+	Hashtag: Hashtag
+};
