@@ -39,10 +39,10 @@ var User = sequelize.define('user', {
 });
 
 ///create/upate user table if does not already exists
-User.sync()
-  .catch(function(err) {
-  	console.error(err)
-  });
+// User.sync()
+//   .catch(function(err) {
+//   	console.error(err)
+//   });
 
 ////// PHOTO
 var Photo = sequelize.define('photo', {
@@ -61,10 +61,10 @@ var Photo = sequelize.define('photo', {
 });
 
 //sync tabe w db if not exists
-Photo.sync()
-  .catch(function(err) {
-  	console.error(err)
-  });
+// Photo.sync()
+//   .catch(function(err) {
+//   	console.error(err)
+//   });
 
 
 ////// CAPTION
@@ -88,10 +88,10 @@ var Caption = sequelize.define('caption', {
 });
 
 //sync tabe w db if not exists
-Caption.sync()
-  .catch(function(err) {
-  	console.error(err)
-  });
+// Caption.sync()
+//   .catch(function(err) {
+//   	console.error(err)
+//   });
 
 
 
@@ -104,10 +104,10 @@ var Hashtag = sequelize.define('hashtag', {
 });
 
 //sync tabe w db if not exists
-Hashtag.sync()
-  .catch(function(err) {
-  	console.error(err)
-  });
+// Hashtag.sync()
+//   .catch(function(err) {
+//   	console.error(err)
+//   });
 
 //DEFINE HASHTAG RELATIONSHIPS 
 Hashtag.hasMany(Photo);
@@ -120,6 +120,8 @@ Caption.belongsTo(Photo);
 Photo.hasMany(Caption);
 Photo.hasMany(Hashtag);
 /////may want Photo to belong to user as an extension !!
+sequelize.sync();
+
 console.log(sequelize.models);
 
 module.exports = {
