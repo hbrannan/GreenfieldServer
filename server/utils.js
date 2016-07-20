@@ -24,7 +24,7 @@ module.exports = {
     // function to update user info from a settings page ( or elsewhere? )
   },
   postPhoto: function (req) {
-    // console.log('weeeee! in postPhoto', req);
+    console.log('weeeee! in postPhoto', req);
     // var photoPost = schemas.Photo.
   },
   getPhotoCaptions: function  (photo) {
