@@ -24,24 +24,24 @@ module.exports = {
     // function to update user info from a settings page ( or elsewhere? )
   },
   postPhoto: function (reqBody) {
-    var photoPost = {
-      user_id: reqBody.user_id,
-      url: reqBody.url,
-      source: reqBody.source,
-      hashtagId: reqBody.hashtagId,
-      data: reqBody.data
-    };
+    // var photoPost = {
+    //   user_id: reqBody.user_id,
+    //   url: reqBody.url,
+    //   source: reqBody.source,
+    //   hashtagId: reqBody.hashtagId,
+    //   data: reqBody.data
+    // };
     console.log('reqBody', reqBody);
 
-    var newPhoto = schemas.Photo.build(photoPost);
-    newPhoto.save()
-      .then(function(){
-        console.log('posted new photo: ', newPhoto);
-        return newPhoto;
-      })
-      .catch(function(err){
-        console.log('sweetie, srry, time to hustle AGAIN', err);
-      });
+    // var newPhoto = schemas.Photo.build(photoPost);
+    // newPhoto.save()
+    //   .then(function(){
+    //     console.log('posted new photo: ', newPhoto);
+    //     return newPhoto;
+    //   })
+    //   .catch(function(err){
+    //     console.log('sweetie, srry, time to hustle AGAIN', err);
+    //   });
   },
   getPhotoCaptions: function  (photo) {
     console.log('hi');
