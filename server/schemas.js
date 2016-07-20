@@ -51,10 +51,10 @@ var Photo = sequelize.define('photo', {
 	}, 
 	data: {
 		type: Sequelize.STRING
-	}, {
-		timestamps: false
 	}
-});
+ }, {
+		timestamps: false
+	});
 
 //sync tabe w db if not exists
 // Photo.sync()
@@ -76,9 +76,9 @@ var Caption = sequelize.define('caption', {
 	}, 
 	caption_bottom: {
 		type: Sequelize.STRING
-	}, {
-		timestamps: false
 	}
+  }, {
+		timestamps: false
 });
 
 //sync tabe w db if not exists
