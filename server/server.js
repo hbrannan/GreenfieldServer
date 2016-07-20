@@ -19,6 +19,33 @@ app.get('/', function (req, res) {
 	res.send('Heyyy bitchez');
 });
 
+//get & post ?? just post? 
+app.get('/users/signin', function (req, res) {
+	res.send('bichez b signing in');
+});
+
+//is this signup
+app.post('/users/create', function (req, res) {
+	res.send('bichez b signing in');
+});
+
+app.get('/photos', function (req, res) {
+	console.log('bichez b getten pixx');
+	utils.showImageOptions(res);
+});
+
+app.post('/photos', function (req, res) {
+	res.send('bichez b postin up');
+});
+
+app.get('/captions', function (req, res) {
+	res.send('bichez b getten the word');
+});
+
+app.post('/captions', function (req, res) {
+	res.send('bichez b postin up word');
+});
+
 app.get('/favicon.ico', function (req, res) {
 	res.sendStatus(200);
 });
