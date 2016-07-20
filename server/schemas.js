@@ -32,10 +32,10 @@ var User = sequelize.define('user', {
 			type: Sequelize.STRING
 		},
 		createdAt: {
-			type: DataTypes.DATE
+			type: Sequelize.DATE
 		},
 		updatedAt: {
-			type: DataTypes.DATE
+			type: Sequelize.DATE
 		}
 	});
 
@@ -57,10 +57,10 @@ var Photo = sequelize.define('photo', {
 		type: Sequelize.STRING
 	},
 	createdAt: {
-		type: DataTypes.DATE
+		type: Sequelize.DATE
 	},
 	updatedAt: {
-		type: DataTypes.DATE
+		type: Sequelize.DATE
 	}
 });
 
@@ -86,10 +86,10 @@ var Caption = sequelize.define('caption', {
 		type: Sequelize.STRING
 	},
 	createdAt: {
-		type: DataTypes.DATE
+		type: Sequelize.DATE
 	},
 	updatedAt: {
-		type: DataTypes.DATE
+		type: Sequelize.DATE
 	}
 });
 
