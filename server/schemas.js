@@ -38,8 +38,6 @@ var User = sequelize.define('user', {
 	freezeTableName: true
 });
 
-//DEFINE USER RELATIONSHIPS 
-User.hasMany(Caption);
 ///create/upate user table if does not already exists
 User.sync()
   .catch(function(err) {
@@ -68,10 +66,6 @@ Photo.sync()
   	console.error(err)
   });
 
-//DEFINE PHOTO RELATIONSHIPS 
-Photo.hasMany(Caption);
-Photo.hasMany(Hashtag);
-/////may want Photo to belong to user as an extension !!
 
 ////// CAPTION
 var Caption = sequelize.define('caption', {
@@ -99,9 +93,6 @@ Caption.sync()
   	console.error(err)
   });
 
-//DEFINE CAPTION RELATIONSHIPS 
-Caption.belongsTo(User);
-Caption.belongsTo(Photo);
 
 
 ////// HASHTAG
@@ -119,9 +110,17 @@ Hashtag.sync()
   });
 
 //DEFINE HASHTAG RELATIONSHIPS 
-
 Hashtag.hasMany(Photo);
-
+//DEFINE USER RELATIONSHIPS 
+User.hasMany(Caption);
+//DEFINE CAPTION RELATIONSHIPS 
+Caption.belongsTo(User);
+Caption.belongsTo(Photo);
+//DEFINE PHOTO RELATIONSHIPS 
+Photo.hasMany(Caption);
+Photo.hasMany(Hashtag);
+/////may want Photo to belong to user as an extension !!
+console.log(sequelize.models);
 
 module.exports = User;
 module.exports = Photo;
