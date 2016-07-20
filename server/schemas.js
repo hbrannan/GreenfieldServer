@@ -1,4 +1,4 @@
-var db = require('./server.js')
+var db = require('./server.js');
 var Sequelize = require('sequelize');
 
 ///(why) do we need this? 
