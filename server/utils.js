@@ -23,10 +23,23 @@ module.exports = {
   getDailyPhoto: function (user) {
     // function to update user info from a settings page ( or elsewhere? )
   },
-  postPhoto: function (req) {
-    console.log('weeeee! in postPhoto', req.headers);
-    return req;
-    // var photoPost = schemas.Photo.
+  postPhoto: function (reqHeaders) {
+    var photoPost = {
+      user_id: reqHeaders.user_id,
+      url: reqHeaders.user_id,
+      source: reqHeaders.source,
+      hashtagId: reqHeaders.hashtagid,
+      data: reqHeaders.data
+    }
+    var newPhoto = schemas.Photo.build(photoPost);
+    newPhoto.save()
+      .then(function(){
+        console.log('posted');
+        return newPhoto;
+      })
+      .catch(function(err){
+        console.log('sweetie, srry, time to hustle AGAIN', err);
+      });
   },
   getPhotoCaptions: function  (photo) {
     console.log('hi');
