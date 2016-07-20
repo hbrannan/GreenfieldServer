@@ -34,7 +34,7 @@ module.exports = {
     var newPhoto = schemas.Photo.build(photoPost);
     newPhoto.save()
       .then(function(){
-        console.log('posted');
+        console.log('posted new photo: ', newPhoto);
         return newPhoto;
       })
       .catch(function(err){
