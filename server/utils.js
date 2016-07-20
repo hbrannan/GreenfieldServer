@@ -17,7 +17,7 @@ module.exports = {
         return results;
       })
       .catch(function (err) {
-        console.log('Suxxx 4 U aint NO results, k?', err);
+        console.log('Sweetie, youll get there, keep trying, k?', err);
       });
   },
   getDailyPhoto: function (user) {
