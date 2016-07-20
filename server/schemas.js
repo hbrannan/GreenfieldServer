@@ -30,13 +30,9 @@ var User = sequelize.define('user', {
 		},
 		email: {
 			type: Sequelize.STRING
-		},
-		createdAt: {
-			type: Sequelize.DATE
-		},
-		updatedAt: {
-			type: Sequelize.DATE
 		}
+	}, {
+		timestamps: false
 	});
 
 ///create/upate user table if does not already exists
@@ -55,12 +51,8 @@ var Photo = sequelize.define('photo', {
 	}, 
 	data: {
 		type: Sequelize.STRING
-	},
-	createdAt: {
-		type: Sequelize.DATE
-	},
-	updatedAt: {
-		type: Sequelize.DATE
+	}, {
+		timestamps: false
 	}
 });
 
@@ -84,12 +76,8 @@ var Caption = sequelize.define('caption', {
 	}, 
 	caption_bottom: {
 		type: Sequelize.STRING
-	},
-	createdAt: {
-		type: Sequelize.DATE
-	},
-	updatedAt: {
-		type: Sequelize.DATE
+	}, {
+		timestamps: false
 	}
 });
 
