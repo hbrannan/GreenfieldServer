@@ -3,7 +3,7 @@ var express = require('express');
 // var Sequelize = require('sequelize');
 // var pg = require('pg');
 var utils = require('./utils.js');
-
+var bodyParser = require('body-parser');
 ////SET VARIABLES
 var port = 3000;
 
@@ -16,6 +16,13 @@ app.listen(process.env.PORT || port, function () {
 
 app.use(express.static(__dirname + '/../dummy.html'));
 
+
+/////////MIDDLEWARE//////////
+var jsonParser = bodyParser.json();
+var urlEncodedParser = bodyParser.urlencoded({extended: false});
+
+
+///////////ROUTES///////////
 app.get('/', function (req, res) {
 	res.send('Heyyy bitchez');
 });
@@ -35,7 +42,7 @@ app.get('/photos', function (req, res) {
 	res.send('something')
 });
 
-app.post('/photos', function (req, res) {
+app.post('/photos', jsonParser, function (req, res) {
 	var result = utils.postPhoto(req.body);
 	res.send(result);
 });
