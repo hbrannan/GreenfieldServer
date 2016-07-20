@@ -16,22 +16,20 @@ var sequelize = new Sequelize('postgres://qntzeozetttxxe:JDkRS8aTusHyPjDmp-YcWCK
 
 ////// USER
 //NOTE: w sequelize, if you don't set id, it will use primary key - id as default. 
-var User = sequelize.define('user', {
+var User = sequelize.define('users_table', {
 		first_name: {
-			type: Sequelize.STRING,
-			field: 'first_name'
+			type: Sequelize.STRING
+
 		}, 
 		last_name: {
-			type: Sequelize.STRING,
-			field: 'last_name'
+			type: Sequelize.STRING
 		},
 		login_or_password : {
-			type: Sequelize.STRING,
-			field: 'login'
+			type: Sequelize.STRING
+
 		},
 		email: {
-			type: Sequelize.STRING,
-			field: 'email'
+			type: Sequelize.STRING
 		}
 	}, {
 		//set model tablename same as model name
@@ -45,18 +43,15 @@ var User = sequelize.define('user', {
 //   });
 
 ////// PHOTO
-var Photo = sequelize.define('photo', {
+var Photo = sequelize.define('photos_table', {
 	url: {
-		type: Sequelize.STRING,
-		field: 'url'
+		type: Sequelize.STRING
 	},
 	source: {
-		type: Sequelize.STRING,
-		field: 'source'
+		type: Sequelize.STRING
 	}, 
 	data: {
-		type: Sequelize.STRING,
-		field: 'data'
+		type: Sequelize.STRING
 	}
 });
 
@@ -68,22 +63,18 @@ var Photo = sequelize.define('photo', {
 
 
 ////// CAPTION
-var Caption = sequelize.define('caption', {
+var Caption = sequelize.define('captions_table', {
 	likes: {
-		type: Sequelize.INTEGER,
-		field: 'url'
+		type: Sequelize.INTEGER
 	},
 	dislikes: {
-		type: Sequelize.INTEGER,
-		field: 'url'
+		type: Sequelize.INTEGER
 	},
 	caption_top: {
-		type: Sequelize.STRING,
-		field: 'source'
+		type: Sequelize.STRING
 	}, 
 	caption_bottom: {
-		type: Sequelize.STRING,
-		field: 'data'
+		type: Sequelize.STRING
 	}
 });
 
@@ -96,10 +87,9 @@ var Caption = sequelize.define('caption', {
 
 
 ////// HASHTAG
-var Hashtag = sequelize.define('hashtag', {
+var Hashtag = sequelize.define('hashtags_table', {
 	hashtag: {
-		type: Sequelize.STRING,
-		field: 'hashtag'
+		type: Sequelize.STRING
 	}
 });
 
