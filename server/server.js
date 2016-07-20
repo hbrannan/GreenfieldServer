@@ -36,7 +36,8 @@ app.get('/photos', function (req, res) {
 });
 
 app.post('/photos', function (req, res) {
-	res.send(utils.postPhoto(req));
+	var result = utils.postPhoto(req);
+	res.send(result);
 });
 
 app.get('/captions', function (req, res) {
