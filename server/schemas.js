@@ -52,7 +52,7 @@ var Photo = sequelize.define('photo', {
 	data: {
 		type: Sequelize.STRING
 	}
- }, {
+  }, {
 		timestamps: false
 	});
 
