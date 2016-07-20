@@ -4,7 +4,7 @@ var express = require('express');
 // var pg = require('pg');
 var utils = require('./utils.js');
 var bodyParser = require('body-parser');
-////SET VARIABLES
+////SET VARIABLES  
 var port = 3000;
 
 ////CONNECT TO SERVER
