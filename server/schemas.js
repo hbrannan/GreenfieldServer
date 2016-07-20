@@ -30,11 +30,14 @@ var User = sequelize.define('user', {
 		},
 		email: {
 			type: Sequelize.STRING
+		},
+		createdAt: {
+			type: DataTypes.DATE
+		},
+		updatedAt: {
+			type: DataTypes.DATE
 		}
-	}, {
-		//set model tablename same as model name
-	freezeTableName: true
-});
+	});
 
 ///create/upate user table if does not already exists
 // User.sync()
@@ -52,6 +55,12 @@ var Photo = sequelize.define('photo', {
 	}, 
 	data: {
 		type: Sequelize.STRING
+	},
+	createdAt: {
+		type: DataTypes.DATE
+	},
+	updatedAt: {
+		type: DataTypes.DATE
 	}
 });
 
@@ -75,6 +84,12 @@ var Caption = sequelize.define('caption', {
 	}, 
 	caption_bottom: {
 		type: Sequelize.STRING
+	},
+	createdAt: {
+		type: DataTypes.DATE
+	},
+	updatedAt: {
+		type: DataTypes.DATE
 	}
 });
 
