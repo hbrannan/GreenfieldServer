@@ -69,8 +69,8 @@ Photo.sync()
   });
 
 //DEFINE PHOTO RELATIONSHIPS 
-Photo.hasMany('caption');
-Photo.hasMany('hashtag');
+Photo.hasMany(Caption);
+Photo.hasMany(Hashtag);
 /////may want Photo to belong to user as an extension !!
 
 ////// CAPTION
@@ -100,8 +100,8 @@ Caption.sync()
   });
 
 //DEFINE CAPTION RELATIONSHIPS 
-Caption.belongsTo('user');
-Caption.belongsTo('photo');
+Caption.belongsTo(User);
+Caption.belongsTo(Photo);
 
 
 ////// HASHTAG
@@ -120,7 +120,7 @@ Hashtag.sync()
 
 //DEFINE HASHTAG RELATIONSHIPS 
 
-Hashtag.hasMany('photo');
+Hashtag.hasMany(Photo);
 
 
 module.exports = User;

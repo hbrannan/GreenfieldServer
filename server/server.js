@@ -30,7 +30,7 @@ app.post('/users/create', function (req, res) {
 });
 
 app.get('/photos', function (req, res) {
-	console.log('bichez b getten pixx');
+	res.send('bichez b getten pixx');
 	// utils.showImageOptions(res);
 });
 
