@@ -12,14 +12,13 @@ module.exports = {
     console.log('this is an extention')
   },
   getAllPhotos: function  () {
-    console.log(schemas.Photo);
-    schemas.Photo.findAll({}, function (results) {
-      if (results) {
+    schemas.Photo.findAll({})
+      .then(function (results) {
         return results;
-      } else {
-        console.log('Suxxx 4 U aint NO results, k?')
-      }
-    });
+      })
+      .catch(function (err) {
+        console.log('Suxxx 4 U aint NO results, k?');
+      });
   },
   getDailyPhoto: function (user) {
     // function to update user info from a settings page ( or elsewhere? )
