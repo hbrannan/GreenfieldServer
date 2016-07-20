@@ -16,7 +16,7 @@ var sequelize = new Sequelize('postgres://qntzeozetttxxe:JDkRS8aTusHyPjDmp-YcWCK
 
 ////// USER
 //NOTE: w sequelize, if you don't set id, it will use primary key - id as default. 
-var User = sequelize.define('users_table', {
+var User = sequelize.define(users_table, {
 		first_name: {
 			type: Sequelize.STRING
 
@@ -43,7 +43,7 @@ var User = sequelize.define('users_table', {
 //   });
 
 ////// PHOTO
-var Photo = sequelize.define('photos_table', {
+var Photo = sequelize.define(photos_table, {
 	url: {
 		type: Sequelize.STRING
 	},
@@ -63,7 +63,7 @@ var Photo = sequelize.define('photos_table', {
 
 
 ////// CAPTION
-var Caption = sequelize.define('captions_table', {
+var Caption = sequelize.define(captions_table, {
 	likes: {
 		type: Sequelize.INTEGER
 	},
@@ -87,7 +87,7 @@ var Caption = sequelize.define('captions_table', {
 
 
 ////// HASHTAG
-var Hashtag = sequelize.define('hashtags_table', {
+var Hashtag = sequelize.define(hashtags_table, {
 	hashtag: {
 		type: Sequelize.STRING
 	}
