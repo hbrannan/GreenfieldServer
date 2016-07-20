@@ -19,14 +19,12 @@ var sequelize = new Sequelize('postgres://qntzeozetttxxe:JDkRS8aTusHyPjDmp-YcWCK
 var User = sequelize.define('user', {
 		first_name: {
 			type: Sequelize.STRING
-
 		}, 
 		last_name: {
 			type: Sequelize.STRING
 		},
 		login_or_password : {
 			type: Sequelize.STRING
-
 		},
 		email: {
 			type: Sequelize.STRING
@@ -43,18 +41,16 @@ var User = sequelize.define('user', {
 
 ////// PHOTO
 var Photo = sequelize.define('photo', {
-	url: {
-		type: Sequelize.STRING
-	},
-	source: {
-		type: Sequelize.STRING
-	}, 
-	data: {
-		type: Sequelize.STRING
-	}
-  }, {
-		timestamps: false
-	});
+		url: {
+			type: Sequelize.STRING
+		},
+		source: {
+			type: Sequelize.STRING
+		}, 
+		data: {
+			type: Sequelize.STRING
+		}
+    });
 
 //sync tabe w db if not exists
 // Photo.sync()
@@ -65,21 +61,21 @@ var Photo = sequelize.define('photo', {
 
 ////// CAPTION
 var Caption = sequelize.define('caption', {
-	likes: {
-		type: Sequelize.INTEGER
-	},
-	dislikes: {
-		type: Sequelize.INTEGER
-	},
-	caption_top: {
-		type: Sequelize.STRING
-	}, 
-	caption_bottom: {
-		type: Sequelize.STRING
-	}
-  }, {
+		likes: {
+			type: Sequelize.INTEGER
+		},
+		dislikes: {
+			type: Sequelize.INTEGER
+		},
+		caption_top: {
+			type: Sequelize.STRING
+		}, 
+		caption_bottom: {
+			type: Sequelize.STRING
+		}
+    }, {
 		timestamps: false
-});
+    });
 
 //sync tabe w db if not exists
 // Caption.sync()
