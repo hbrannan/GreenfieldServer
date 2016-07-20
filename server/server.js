@@ -31,7 +31,7 @@ app.post('/users/create', function (req, res) {
 });
 
 app.get('/photos', function (req, res) {
-	utils.getAllPhotos(res);
+	res.send(utils.getAllPhotos());
 });
 
 app.post('/photos', function (req, res) {

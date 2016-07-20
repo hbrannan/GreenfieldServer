@@ -11,9 +11,13 @@ module.exports = {
   getUserInfo: function (user) {
     console.log('this is an extention')
   },
-  getAllPhotos: function  (res) {
+  getAllPhotos: function  () {
     schemas.Photo.findAll({}, function (results) {
-      res.send(results);
+      if (results) {
+        return results;
+      } else {
+        console.log('Suxxx 4 U aint NO results, k?')
+      }
     });
   },
   getDailyPhoto: function (user) {
