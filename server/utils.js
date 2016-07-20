@@ -26,11 +26,11 @@ module.exports = {
   postPhoto: function (reqHeaders) {
     var photoPost = {
       user_id: reqHeaders.user_id,
-      url: reqHeaders.user_id,
+      url: reqHeaders.url,
       source: reqHeaders.source,
-      hashtagId: reqHeaders.hashtagid,
+      hashtagId: reqHeaders.hashtagId,
       data: reqHeaders.data
-    }
+    };
     var newPhoto = schemas.Photo.build(photoPost);
     newPhoto.save()
       .then(function(){
