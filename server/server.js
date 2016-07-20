@@ -36,7 +36,7 @@ app.get('/photos', function (req, res) {
 });
 
 app.post('/photos', function (req, res) {
-	var result = utils.postPhoto(req);
+	var result = utils.postPhoto(req.body);
 	res.send(result);
 });
 
