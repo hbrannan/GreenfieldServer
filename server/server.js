@@ -31,12 +31,12 @@ app.post('/users/create', function (req, res) {
 });
 
 app.get('/photos', function (req, res) {
-	// res.send(utils.getAllPhotos());
+	res.send(utils.getAllPhotos());
 });
 
 app.post('/photos', function (req, res) {
 	utils.postPhoto(req);
-	// res.send('bichez b postin up');
+	res.send('bichez b postin up');
 
 });
 
