@@ -87,11 +87,11 @@ var Caption = sequelize.define('caption', {
 
 
 ////// HASHTAG
-var Hashtag = sequelize.define('hashtag', {
-	hashtag: {
-		type: Sequelize.STRING
-	}
-});
+// var Hashtag = sequelize.define('hashtag', {
+// 	hashtag: {
+// 		type: Sequelize.STRING
+// 	}
+// });
 
 //sync tabe w db if not exists
 // Hashtag.sync()
@@ -100,7 +100,7 @@ var Hashtag = sequelize.define('hashtag', {
 //   });
 
 //DEFINE HASHTAG RELATIONSHIPS 
-Hashtag.hasMany(Photo);
+// Hashtag.belongsToMany(Photo);
 //DEFINE USER RELATIONSHIPS 
 User.hasMany(Caption);
 //DEFINE CAPTION RELATIONSHIPS 
@@ -108,7 +108,7 @@ Caption.belongsTo(User);
 Caption.belongsTo(Photo);
 //DEFINE PHOTO RELATIONSHIPS 
 Photo.hasMany(Caption);
-Photo.hasMany(Hashtag);
+// Photo.hasMany(Hashtag);
 /////may want Photo to belong to user as an extension !!
 sequelize.sync();
 
@@ -117,6 +117,6 @@ console.log(sequelize.models);
 module.exports = {
 	User: User,
 	Photo: Photo,
-	Caption: Caption,
-	Hashtag: Hashtag
+	Caption: Caption
+	// Hashtag: Hashtag
 };
