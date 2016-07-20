@@ -35,7 +35,9 @@ app.get('/photos', function (req, res) {
 });
 
 app.post('/photos', function (req, res) {
-	res.send('bichez b postin up');
+	utils.postPhoto(req);
+	// res.send('bichez b postin up');
+
 });
 
 app.get('/captions', function (req, res) {

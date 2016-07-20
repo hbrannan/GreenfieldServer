@@ -23,6 +23,10 @@ module.exports = {
   getDailyPhoto: function (user) {
     // function to update user info from a settings page ( or elsewhere? )
   },
+  postPhoto: function (req) {
+    console.log('weeeee! in postPhoto', req);
+    // var photoPost = schemas.Photo.
+  },
   getPhotoCaptions: function  (photo) {
     // function to get all images/captions for the day
     // includes: caption text, image URL, vote count, user who posted ?
