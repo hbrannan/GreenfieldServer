@@ -27,7 +27,6 @@ module.exports = {
     console.log('weeeee! in postPhoto', req.user_id);
     var postedUser = req.body.headers;
     var user_id = postedUser.user_id;
-    var 
     // var photoPost = schemas.Photo.
   },
   getPhotoCaptions: function  (photo) {
