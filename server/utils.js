@@ -31,8 +31,7 @@ module.exports = {
       hashtagId: reqHeaders.hashtagId,
       data: reqHeaders.data
     };
-    console.log('photoPost', photoPost);
-    console.log('photoPostURL', photoPost.url);
+    console.log('reqHeaders', reqHeaders);
 
     var newPhoto = schemas.Photo.build(photoPost);
     newPhoto.save()
