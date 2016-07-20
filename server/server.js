@@ -2,7 +2,7 @@
 var express = require('express');
 // var Sequelize = require('sequelize');
 // var pg = require('pg');
-var utils = require('utils.js');
+var utils = require('./utils.js');
 
 ////SET VARIABLES
 var port = 3000;
