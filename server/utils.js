@@ -1,4 +1,4 @@
-var schemas = require('schemas.js');
+var schemas = require('./schemas.js');
 
 module.exports = {
   addUser: function (user) {
