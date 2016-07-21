@@ -99,7 +99,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
         caption.update({
           likes: oldVal + 1
         });
-        console.log('successfully upvoted, ' + captionId)
+        console.log('successfully upvoted!')
         return oldVal + 1;
       })
       .catch(function(err){
@@ -108,15 +108,13 @@ FROM captions AS caption WHERE caption.photo_id = 1;
   }, 
   downVoteCaption: function (captionId) {
     schemas.Caption.findOne({ where: {id: captionId} })
-      .then(function () {
-        //reset/ overwrite that Caption's dislikes to dislikes++
+      .then(function (caption) {
         var oldVal = caption.dislikes;
         caption.update({
-          dislikes: oldVal - 1
+          dislikes: oldVal + 1
         });
-      })
-      .then(function (updatedCaption){
-        return updatedCaption.likes;
+        console.log('successfully downvoted!')
+        return oldVal + 1;
       })
       .catch(function(err){
         console.log('Error upvoting caption: ', err);

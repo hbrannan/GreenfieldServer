@@ -93,6 +93,12 @@ app.put('/captions/upvote', function (req, res) {
 	res.send(utils.upVoteCaption(req.body.captionId));
 })
 
+//endpoint for downvoting captions
+app.put('/captions/downvote', function (req, res) {
+	res.send(utils.downVoteCaption(req.body.captionId))
+})
+
+
 ////////////////////////////////////
 ///////////////GoDDAMN the FAVICON
 //just appease the request
