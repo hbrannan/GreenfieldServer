@@ -4,6 +4,7 @@ var express = require('express');
 // var pg = require('pg');
 var utils = require('./utils.js');
 var bodyParser = require('body-parser');
+
 ////SET VARIABLES  
 var port = 3000;
 
@@ -20,14 +21,16 @@ app.use(express.static(__dirname + '/../dummy.html'));
 /////////MIDDLEWARE//////////
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(require('express-promise')());
 
 ///////////ROUTES///////////
+
+///HOMEPAGE
 app.get('/', function (req, res) {
 	res.send('Heyyy bitchez');
 });
 
-//get & post ?? just post? 
+////////////////USERS SECTION
 app.get('/users/signin', function (req, res) {
 	res.send('bichez b signing in');
 });
@@ -37,6 +40,7 @@ app.post('/users/create', function (req, res) {
 	res.send('bichez b signing in');
 });
 
+//////////////////PHOTOS SECTION
 app.get('/photos', function (req, res) {
 	// res.send(utils.getAllPhotos());	
 	res.send('something')
@@ -52,6 +56,7 @@ app.get('/photos/giveusthisday', function(req, res) {
 	res.send(utils.getDailyPhoto());
 })
 
+///////////////CAPTIONS SECTION
 app.get('/captions', function (req, res) {
 	res.send('bichez b getten the word');
 });
