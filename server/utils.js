@@ -5,11 +5,10 @@ module.exports = {
 
   },
   updateUserInfo: function (user) {
-    // function to update user info from a settings page ( or elsewhere? )
-    console.log('this is an extnsion')
+
   },
   getUserInfo: function (user) {
-    console.log('this is an extention')
+
   },
   getAllPhotos: function  () {
     schemas.Photo.findAll({})
@@ -21,14 +20,14 @@ module.exports = {
       });
   },
   getDailyPhoto: function (cb) {
-    // function to update user info from a settings page ( or elsewhere? )
+    //currently: placeholder photo!! 
     schemas.Photo.findOne({ where: { source: "imgur" }})
     .then(function(photo) {
        cb(photo.dataValues);
     }).catch( function(err) {
-      console.log('uh oh!!!! there\'s an error: ', err);
+      console.log('Error retrieving daily photo: ', err);
       cb(err);
-    })
+    });
   },
   getDailyPhotoId: function (photoDataVals) {
       return photoDataVals.id;
@@ -47,19 +46,19 @@ module.exports = {
       if (!photo) {
         var newPhoto = schemas.Photo.build(photoPost);
         newPhoto.save()
-          .then(function(){
+          .then(function(newPhoto){
             return newPhoto;
           })
           .catch(function(err){
-            console.log('sweetie, srry, time to hustle AGAIN', err);
+            console.log('Error posting photo: ', err);
           });  
       } else {
         console.log('photo exists already')
-        return 'Photo already in database';
+        return 'Photo already in database.';
       }
     })
   },
-  getPhotoCaptions: function  (cb) {
+  getPhotoCaptions: function  (photoId, cb) {
     //get the daily photo
     //get the daily photoID
     console.log('doii', module.exports.getDailyPhoto(module.exports.getDailyPhotoId));
@@ -67,18 +66,48 @@ module.exports = {
     // schemas.Caption.findAll({ where: {photo_id= }});
     // includes: caption text, image URL, vote count, user who posted ?
   },
-  postCaption: function (caption) {
-        var user_id = postedUser.user_id;
-    // function to post a user-created caption
+  postCaption: function (reqBody) {
+    // console.log(reqBody);
+    // var captionPost = {
+    //   id: reqBody.id,
+    //   user_id: reqBody.user_id,
+    //   photo_id: reqBody.photo_id,
+    //   caption_top: reqBody.caption_top,
+    //   caption_bottom: reqBody.caption_bottom,
+    //   likes: reqBody.likes,
+    //   dislikes: reqBody.dislikes,
+    //   font: reqBody.font
+    // };
+    // var newCaption = schemas.Caption.build(captionPost);
+    // newCaption.save()
+    //   .then(function(newCaption){
+    //     return newCaption
+    //   })
+    //   .catch(function(err){
+    //     console.log('Error in caption post: ', err);
+    //   })
   },
-  upVoteCaption: function (caption) {
-    // function to upvote a particular caption
-        var user_id = postedUser.user_id;
+  upVoteCaption: function (captionId) {
+    // schemas.Caption.findOne({ where: {id: captionId} })
+    //   .then(function () {
+    //     //reset/ overwrite that Caption's likes to likes++
+    //   })
+    //   .catch(function(err){
+    //     console.log('Error upvoting caption: ', err);
+    //   });
   }, 
-  downVoteCaption: function (caption) {
-    var user_id = postedUser.user_id;
+  downVoteCaption: function (captionId) {
+    // schemas.Caption.findOne({ where: {id: captionId} })
+    //   .then(function () {
+    //     //reset/ overwrite that Caption's dislikes to dislikes++
+    //   })
+    //   .catch(function(err){
+    //     console.log('Error upvoting caption: ', err);
+    //   });
   },
-  displayVotes: function (caption) {
-    var user_id = postedUser.user_id;
+  displayCaptionVotes: function (captionId) {
+    //find likes
+    //find dislikes
+    //add them together and return that number.
   }
 };
