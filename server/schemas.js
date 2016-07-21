@@ -67,7 +67,7 @@ const Caption = sequelize.define('caption', {
 		}, 
 		caption_bottom: {
 			type: Sequelize.STRING
-		}
+		},
   	userId: {
   		type: Sequelize.STRING
   	},
