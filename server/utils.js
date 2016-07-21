@@ -126,9 +126,9 @@ FROM captions AS caption WHERE caption.photo_id = 1;
     schemas.Caption.findOne({ where: { id: captionId } })
       .then(function (caption) {
         const captionVotes = {
-          likes = caption.likes,
-          dislikes = caption.dislikes,
-          total = likes + dislikes
+          likes: caption.likes,
+          dislikes: caption.dislikes,
+          total: likes + dislikes
          }
         return captionVotes;
       })
