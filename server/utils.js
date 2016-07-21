@@ -2,7 +2,9 @@ var schemas = require('./schemas.js');
 
 module.exports = {
   addUser: function (user) {
-    
+    var newUser = {
+
+    }    
   },
   updateUserInfo: function (user) {
     // function to update user info from a settings page ( or elsewhere? )
@@ -24,8 +26,6 @@ module.exports = {
     // function to update user info from a settings page ( or elsewhere? )
   },
   postPhoto: function (reqBody) {
-    console.log('reqBody', reqBody);
-    
     var photoPost = {
       user_id: reqBody.user_id,
       url: reqBody.url,
@@ -34,15 +34,22 @@ module.exports = {
       data: reqBody.data
     };
 
-    var newPhoto = schemas.Photo.build(photoPost);
-    newPhoto.save()
-      .then(function(){
-        console.log('posted new photo: ', newPhoto);
-        return newPhoto;
-      })
-      .catch(function(err){
-        console.log('sweetie, srry, time to hustle AGAIN', err);
-      });
+    //check if photo is duplicate
+    schemas.Photo.findOne({ where: {url: url} }).then(function(photo) {
+      if (photo.length > 0) {
+        var newPhoto = schemas.Photo.build(photoPost);
+        newPhoto.save()
+          .then(function(){
+            console.log('posted new photo: ', newPhoto);
+            return newPhoto;
+          })
+          .catch(function(err){
+            console.log('sweetie, srry, time to hustle AGAIN', err);
+          });  
+      } else {
+        return 'Photo already in database';
+      }
+    })
   },
   getPhotoCaptions: function  (photo) {
     console.log('hi');
