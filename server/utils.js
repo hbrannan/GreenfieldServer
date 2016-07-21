@@ -120,10 +120,20 @@ FROM captions AS caption WHERE caption.photo_id = 1;
         console.log('Error upvoting caption: ', err);
       });
   },
+  // returns the likes, dislikes, and total votes of a caption
   displayCaptionVotes: function (captionId) {
     //find likes
-    schemas.Caption.findOne()
-    //find dislikes
-    //add them together and return that number.
+    schemas.Caption.findOne({ where: { id: captionId } })
+      .then(function (caption) {
+        const captionVotes = {
+          likes = caption.likes,
+          dislikes = caption.dislikes,
+          total = likes + dislikes
+         }
+        return captionVotes;
+      })
+      .catch(function(err) {
+        console.log('Error upvoting caption: ', err);
+      })
   }
 };

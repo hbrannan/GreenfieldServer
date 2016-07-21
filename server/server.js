@@ -95,7 +95,12 @@ app.put('/captions/upvote', function (req, res) {
 
 //endpoint for downvoting captions
 app.put('/captions/downvote', function (req, res) {
-	res.send(utils.downVoteCaption(req.body.captionId))
+	res.send(utils.downVoteCaption(req.body.captionId));
+})
+
+//endpoint for getting likes, dislikes, total votes
+app.put('/captions/getvotes', function (req, res) {
+	res.send(utils.displayCaptionVotes(req.body.captionId));
 })
 
 
