@@ -45,20 +45,19 @@ app.get('/users/info', function (req, res) {
 
 //updating sign-in info MVP?!??!!? resubmit the whole form?
 app.put('/users/info', function (req, res) {
-    console.log('updatesignN reqBody (usR)', req.body);
-    res.send(utils.updateUserInfo(req.body));
+  console.log('updatesignN reqBody (usR)', req.body);
+  res.send(utils.updateUserInfo(req.body));
 });
 
 //adding a new user
 app.post('/users/create', function (req, res) {
-    console.log('req in UssRpossst', req);
-    res.send(utils.addUser(req.body));
+  console.log('creating new user!!!');
+	utils.addUser(req.body, res.send);
 });
 
 //checking fb access to authenticate?
 app.post('/users/authenticated', function(req, res) {
 	console.log('user is being authenticated')
-
 })
 
 ////////////////////////////////////

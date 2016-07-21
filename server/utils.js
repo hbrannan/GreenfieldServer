@@ -1,7 +1,7 @@
 const schemas = require('./schemas.js');
 
 module.exports = {
-  addUser: function (reqBody) {
+  addUser: function (reqBody, cb) {
     console.log('userReq',reqBody);
     const userPost = {
       first_name: reqBody.first_name,
@@ -15,7 +15,7 @@ module.exports = {
     newUser.save()
     .then(function(newUser){
       console.log('userPostsucceeded!!', newUser);
-      return newUser;
+      cb(newUser.id);
     })
     .catch(function(err) {
       console.log(err);
@@ -102,6 +102,14 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   postCaption: function (reqBody, cb) {
+    /*
+    INSERT INTO "public"."captions"("userId", 
+      "caption_top", "caption_bottom", "photoId") 
+      VALUES(1, 'testing', 'testtttting', 1) 
+      RETURNING "id", "userId", "caption_top", 
+      "caption_bottom", "photoId", "likes", "dislikes",
+       "font", "createdAt", "updatedAt";
+    */
     const captionPost = {
       // userId: reqBody.userId,
       // photoId: reqBody.photoId,
