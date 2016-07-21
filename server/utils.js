@@ -126,7 +126,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       })
       .catch(function(err){
         console.log('Error in caption post: ', err);
-        console.error(err)
+        return err;
       });
   },
   upVoteCaption: function (captionId) {
