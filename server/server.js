@@ -66,12 +66,12 @@ app.post('/photos', function (req, res) {
 
 //get all captions for daily photo
 app.get('/captions', function (req, res) {
-	//first: get the id of the photo.
+	// get the id of daily photo.
 	var dailyPhotoId = utils.getDailyPhoto(function (photoOrErr){
 		if (photoOrErr instanceof Error){
 			console.log('Error retrieving daily photo: ', err);
 		} else {
-			console.log('expect 1 to equal', photoOrErr.id);
+			return photoOrErr.id;
 		}
 	});
 	//then:    ***OF DAILY PHOTO ID***
