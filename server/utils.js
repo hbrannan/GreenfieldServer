@@ -1,10 +1,8 @@
 var schemas = require('./schemas.js');
 
 module.exports = {
-  addUser: function (user) {
-    var newUser = {
+  addUser: function (reqBody) {
 
-    }    
   },
   updateUserInfo: function (user) {
     // function to update user info from a settings page ( or elsewhere? )
@@ -22,8 +20,13 @@ module.exports = {
         console.log('Sweetie, youll get there, keep trying, k?', err);
       });
   },
-  getDailyPhoto: function (user) {
+  getDailyPhoto: function () {
     // function to update user info from a settings page ( or elsewhere? )
+    schemas.Photo.findOne({ where: { source: "imgur" }}).then(function(photo) {
+      return photo;
+    }).catch( function(err) {
+      console.log('uh oh!!!! there\'s an error: ', err);
+    })
   },
   postPhoto: function (reqBody) {
     var photoPost = {
