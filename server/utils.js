@@ -12,7 +12,7 @@ module.exports = {
       fb_access: reqBody.data,
       photo: reqBody.photo
     };
-    var newUser = schemas.User.build(user);
+    var newUser = schemas.User.build(userPost);
     newUser.save()
     .then(function(newUser){
       console.log('userPostsucceeded!!');

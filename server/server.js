@@ -37,14 +37,14 @@ app.get('/', function (req, res) {
 ////////////////USERS SECTION
 
 //retrieving sign in info
-app.get('/users/signin', function (req, res) {
+app.get('/users/info', function (req, res) {
 	console.log('bichez b signing in');
   console.log('signN reqBody shoudl B singL usR', req.body);
   res.send(utils.getUserInfo(req.body));
 });
 
 //updating sign-in info
-app.put('/users/signin', function (req, res) {
+app.put('/users/info', function (req, res) {
     console.log('updatesignN reqBody (usR)', req.body);
     res.send(utils.updateUserInfo(req.body));
 });
