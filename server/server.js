@@ -61,9 +61,9 @@ app.get('/photos/giveusthisday', function(req, res) {
 	.done(function(daPhoto) {
 		res.send(daPhoto);
 	})
-	.catch(function(err){
-		console.log('Lilith strikes again: ', err);
-	});
+	// .catch(function(err){
+	// 	console.log('Lilith strikes again: ', err);
+	// });
 })
 
 ///////////////CAPTIONS SECTION
