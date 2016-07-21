@@ -22,8 +22,8 @@ module.exports = {
   },
   getDailyPhoto: function () {
     // function to update user info from a settings page ( or elsewhere? )
-    schemas.Photo.findOne({ where: { source: "imgur" }}).then(function(photo) {
-      console.log('whats photo nE way?', photo);
+    schemas.Photo.findOne({ where: { source: "imgur" }})
+    .then(function(photo) {
       return photo;
     }).catch( function(err) {
       console.log('uh oh!!!! there\'s an error: ', err);
