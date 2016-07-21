@@ -101,7 +101,9 @@ app.put('/captions/downvote', function (req, res) {
 
 //endpoint for getting likes, dislikes, total votes
 app.get('/captions/getvotes', function (req, res) {
-	res.send(utils.displayCaptionVotes(req.body.captionId));
+	console.log("req is ", req)
+	res.send('pancakes')
+	// res.send(utils.displayCaptionVotes());
 })
 
 
