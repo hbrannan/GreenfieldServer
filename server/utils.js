@@ -7,15 +7,15 @@ module.exports = {
       first_name: reqBody.first_name,
       last_name: reqBody.last_name,
       email: reqBody.email,
-      fb_username: reqBody.hashtagId,
-      fb_access: reqBody.data,
+      fb_username: reqBody.fb_username,
+      fb_access: reqBody.fb_access,
       photo: reqBody.photo
     };
     const newUser = schemas.User.build(userPost);
     newUser.save()
-    .then(function(newUser){
-      console.log('userPostsucceeded!!', newUser);
-      cb(newUser.id);
+    .then(function(result){
+      console.log('userPostsucceeded!!', result);
+      cb(result.id);
     })
     .catch(function(err) {
       console.log(err);
