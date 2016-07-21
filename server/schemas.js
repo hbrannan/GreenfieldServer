@@ -1,8 +1,8 @@
-var db = require('./server.js');
-var Sequelize = require('sequelize');
+const db = require('./server.js');
+const Sequelize = require('sequelize');
 
 ///(why) do we need this? 
-var sequelize = new Sequelize('postgres://qntzeozetttxxe:JDkRS8aTusHyPjDmp-YcWCK2qN@ec2-54-243-249-154.compute-1.amazonaws.com:5432/dfbtc6j4b2mtgi', {
+const sequelize = new Sequelize('postgres://qntzeozetttxxe:JDkRS8aTusHyPjDmp-YcWCK2qN@ec2-54-243-249-154.compute-1.amazonaws.com:5432/dfbtc6j4b2mtgi', {
 	dialect: 'postgres',
 	dialectOptions: {
 		ssl: true
@@ -16,7 +16,7 @@ var sequelize = new Sequelize('postgres://qntzeozetttxxe:JDkRS8aTusHyPjDmp-YcWCK
 
 ////// USER
 //NOTE: w sequelize, if you don't set id, it will use primary key - id as default. 
-var User = sequelize.define('user', {
+const User = sequelize.define('user', {
 		first_name: {
 			type: Sequelize.STRING
 		}, 
@@ -35,7 +35,7 @@ var User = sequelize.define('user', {
 
 
 ////// PHOTO
-var Photo = sequelize.define('photo', {
+const Photo = sequelize.define('photo', {
 		url: {
 			type: Sequelize.STRING
 		},
@@ -49,7 +49,7 @@ var Photo = sequelize.define('photo', {
 
 
 ////// CAPTION
-var Caption = sequelize.define('caption', {
+const Caption = sequelize.define('caption', {
 		likes: {
 			type: Sequelize.INTEGER
 		},

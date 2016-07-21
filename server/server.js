@@ -1,16 +1,16 @@
 ///LIST DEPENDENCIES
-var express = require('express');
-// var Sequelize = require('sequelize');
-// var pg = require('pg');
-var utils = require('./utils.js');
-var bodyParser = require('body-parser');
-// var Q = require('q');
+const express = require('express');
+// const Sequelize = require('sequelize');
+// const pg = require('pg');
+const utils = require('./utils.js');
+const bodyParser = require('body-parser');
+// const Q = require('q');
 
 ////SET VARIABLES  
-var port = 3000;
+const port = 3000;
 
 ////CONNECT TO SERVER
-var app = express();
+const app = express();
 app.listen(process.env.PORT || port, function () {
 	console.log('Server listening at ' + port);
 });
@@ -20,7 +20,7 @@ app.use(express.static(__dirname + '/../dummy.html'));
 
 
 /////////MIDDLEWARE//////////
-// var fetchDaPhoto = Q.nbind(utils.getDailyPhoto, utils);
+// const fetchDaPhoto = Q.nbind(utils.getDailyPhoto, utils);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -107,8 +107,6 @@ app.get('/captions/giveusthisday', function (req, res) {
 
 //user posts caption on a photo
 app.post('/captions/giveusthisday', function (req, res) {
-	// console.log('POSTING TO CAPTIONS...req is:', req)
-	console.log(req.body)
 	utils.postCaption(req.body, res.send)
 
 });

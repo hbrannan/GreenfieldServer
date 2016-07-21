@@ -1,9 +1,9 @@
-var schemas = require('./schemas.js');
+const schemas = require('./schemas.js');
 
 module.exports = {
   addUser: function (reqBody) {
     console.log('userReq',reqBody);
-    var userPost = {
+    const userPost = {
       first_name: reqBody.first_name,
       last_name: reqBody.last_name,
       email: reqBody.email,
@@ -11,7 +11,7 @@ module.exports = {
       fb_access: reqBody.data,
       photo: reqBody.photo
     };
-    var newUser = schemas.User.build(userPost);
+    const newUser = schemas.User.build(userPost);
     newUser.save()
     .then(function(newUser){
       console.log('userPostsucceeded!!', newUser);
@@ -22,7 +22,7 @@ module.exports = {
     });
   },
   updateUserInfo: function (reqBody) {
-    // var newUserInfo = {
+    // const newUserInfo = {
     //   first_name: reqBody.first_name
     // }
   },
@@ -62,7 +62,7 @@ module.exports = {
       return photoDataVals.id;
   },
   postPhoto: function (reqBody) {
-    var photoPost = {
+    const photoPost = {
       user_id: reqBody.user_id,
       url: reqBody.url,
       source: reqBody.source,
@@ -73,7 +73,7 @@ module.exports = {
     //check if photo is duplicate
     schemas.Photo.findOne({ where: {url: reqBody.url} }).then(function(photo) {
       if (!photo) {
-        var newPhoto = schemas.Photo.build(photoPost);
+        const newPhoto = schemas.Photo.build(photoPost);
         newPhoto.save()
           .then(function(newPhoto){
             return newPhoto;
@@ -102,7 +102,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   postCaption: function (reqBody, cb) {
-    var captionPost = {
+    const captionPost = {
       userId: reqBody.userId,
       photoId: reqBody.photoId,
       caption_top: reqBody.caption_top,
@@ -110,7 +110,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       font: reqBody.font
     };
     console.log('captionPost is', captionPost)
-    var newCaption = schemas.Caption.build(captionPost);
+    const newCaption = schemas.Caption.build(captionPost);
     newCaption.save()
       .then(function(newCaption){
         console.log('yusssss successs! new caption is ', newCaption);
@@ -124,7 +124,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
   upVoteCaption: function (captionId) {
     schemas.Caption.findOne({ where: {id: captionId} })
       .then(function (caption) {
-        var oldVal = caption.likes;
+        const oldVal = caption.likes;
         caption.update({
           likes: oldVal + 1
         });
@@ -138,7 +138,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
   downVoteCaption: function (captionId) {
     schemas.Caption.findOne({ where: {id: captionId} })
       .then(function (caption) {
-        var oldVal = caption.dislikes;
+        const oldVal = caption.dislikes;
         caption.update({
           dislikes: oldVal + 1
         });
