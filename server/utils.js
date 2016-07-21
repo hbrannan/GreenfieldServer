@@ -119,9 +119,9 @@ FROM captions AS caption WHERE caption.photo_id = 1;
     };
     console.log('captionPost is', captionPost)
     schemas.Caption.build(captionPost).save()
-      .then(function(){
+      .then(function(newPost){
         console.log('yusssss successs! new caption is ');
-        cb(captionPost);
+        cb(newPost);
       })
       .catch(function(err){
         console.log('Error in caption post: ', err);
