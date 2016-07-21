@@ -162,5 +162,15 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       .catch(function(err) {
         console.log('Error getting caption votes: ', err);
       })
+  },
+  getAllCaptions: function(cb) {
+    schemas.Caption.findAll({})
+      .then(function(results) {
+        console.log('WE DID IT!!!!' + results)
+        cb(results)
+      })
+      .catch(function(err) {
+        cb(err)
+      })
   }
 };

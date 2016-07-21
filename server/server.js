@@ -30,7 +30,7 @@ app.use(require('express-promise')());
 
 ///HOMEPAGE
 app.get('/', function (req, res) {
-	res.send('Heyyy bitchez');
+	res.send('Heyyy bitchez lololol 4 life!');
 });
 
 ////////////////////////////////////
@@ -43,7 +43,7 @@ app.get('/users/info', function (req, res) {
   res.send(utils.getUserInfo(queryBody));
 });
 
-//updating sign-in info MVP?!??!!?
+//updating sign-in info MVP?!??!!? resubmit the whole form?
 app.put('/users/info', function (req, res) {
     console.log('updatesignN reqBody (usR)', req.body);
     res.send(utils.updateUserInfo(req.body));
