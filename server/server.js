@@ -95,6 +95,7 @@ app.put('/captions/upvote', function (req, res) {
 
 //endpoint for downvoting captions
 app.put('/captions/downvote', function (req, res) {
+	console.log( typeof 'req.query.captionId')
 	res.send(utils.downVoteCaption(Number(req.query.captionId)));
 })
 
