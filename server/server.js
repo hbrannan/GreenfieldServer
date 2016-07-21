@@ -4,7 +4,7 @@ var express = require('express');
 // var pg = require('pg');
 var utils = require('./utils.js');
 var bodyParser = require('body-parser');
-var Q = require('q');
+// var Q = require('q');
 
 ////SET VARIABLES  
 var port = 3000;
@@ -20,7 +20,7 @@ app.use(express.static(__dirname + '/../dummy.html'));
 
 
 /////////MIDDLEWARE//////////
-var fetchDaPhoto = Q.nbind(utils.getDailyPhoto, utils);
+// var fetchDaPhoto = Q.nbind(utils.getDailyPhoto, utils);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -46,25 +46,16 @@ app.post('/users/create', function (req, res) {
 //////////////////PHOTOS SECTION
 app.get('/photos', function (req, res) {
 	// res.send(utils.getAllPhotos());	
-	res.send('something')
+	res.send(utils.getAllPhotos());
 });
 
-app.post('/photos', function (req, res) {
-	// console.log('req izzzzz', req);
-	// console.log('req body izzzzzzz', req.body);	
+app.post('/photos', function (req, res) {	
 	res.send(utils.postPhoto(req.body));
 });
 
 app.get('/photos/giveusthisday', function(req, res) {
-	console.log(fetchDaPhoto);
 	utils.getDailyPhoto(res.send);
-	// .done(function(daPhoto) {
-	// 	res.send(daPhoto);
-	// })
-	// .catch(function(err){
-	// 	console.log('Lilith strikes again: ', err);
-	// });
-})
+});
 
 ///////////////CAPTIONS SECTION
 app.get('/captions', function (req, res) {

@@ -30,6 +30,11 @@ module.exports = {
       cb(err);
     })
   },
+  getDailyPhotoId: function () {
+    return getDailyPhoto(function (photoDataVals) {
+      return photoDataVals.id;
+    });
+  },
   postPhoto: function (reqBody) {
     var photoPost = {
       user_id: reqBody.user_id,
@@ -42,11 +47,9 @@ module.exports = {
     //check if photo is duplicate
     schemas.Photo.findOne({ where: {url: reqBody.url} }).then(function(photo) {
       if (!photo) {
-        console.log('no photo like that in our db, posting...')
         var newPhoto = schemas.Photo.build(photoPost);
         newPhoto.save()
           .then(function(){
-            console.log('posted new photo: ', newPhoto);
             return newPhoto;
           })
           .catch(function(err){
@@ -60,6 +63,7 @@ module.exports = {
   },
   getPhotoCaptions: function  (photo) {
     console.log('hi');
+    schemas.Caption.findAll({ where: {photo_id}})
     // function to get all images/captions for the day
     // includes: caption text, image URL, vote count, user who posted ?
   },
