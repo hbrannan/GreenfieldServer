@@ -15,7 +15,7 @@ module.exports = {
     newUser.save()
     .then(function(result){
       console.log('userPostsucceeded!!', result);
-      cb(result.dataValues.id);
+      cb({newUserId: result.dataValues.id});
     })
     .catch(function(err) {
       console.log(err);

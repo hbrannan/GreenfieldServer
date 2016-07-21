@@ -68,6 +68,15 @@ const Caption = sequelize.define('caption', {
 		caption_bottom: {
 			type: Sequelize.STRING
 		}
+  	userId: {
+  		type: Sequelize.STRING
+  	},
+  	photoId: {
+  		type: Sequelize.STRING
+  	},
+  	font: {
+  		type: Sequelize.STRING
+  	}
   }, {
 		timestamps: false
   });
