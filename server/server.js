@@ -3,6 +3,7 @@ var express = require('express');
 // var Sequelize = require('sequelize');
 // var pg = require('pg');
 var utils = require('./utils.js');
+var bodyParser = require('body-parser');
 ////SET VARIABLES  
 var port = 3000;
 
@@ -17,7 +18,8 @@ app.use(express.static(__dirname + '/../dummy.html'));
 
 
 /////////MIDDLEWARE//////////
-
+app.use(bodyParser.json());
+app.user(bodyParser.urlencoded({extended: true}));
 
 
 ///////////ROUTES///////////
