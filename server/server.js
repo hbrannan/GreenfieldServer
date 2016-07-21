@@ -48,6 +48,10 @@ app.post('/photos', function (req, res) {
 	res.send(utils.postPhoto(req.body));
 });
 
+app.get('/photos/giveusthisday', function(req, res) {
+	res.send(utils.getDailyPhoto());
+})
+
 app.get('/captions', function (req, res) {
 	res.send('bichez b getten the word');
 });
