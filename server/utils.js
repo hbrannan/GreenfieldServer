@@ -93,25 +93,39 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   upVoteCaption: function (captionId) {
-    // schemas.Caption.findOne({ where: {id: captionId} })
-    //   .then(function () {
-    //     //reset/ overwrite that Caption's likes to likes++
-    //   })
-    //   .catch(function(err){
-    //     console.log('Error upvoting caption: ', err);
-    //   });
+    schemas.Caption.findOne({ where: {id: captionId} })
+      .then(function (caption) {
+        var oldVal = caption.likes;
+        caption.update({
+          likes: oldVal + 1
+        });
+      })
+      .then(function (updatedCaption){
+        return updatedCaption.likes;
+      })
+      .catch(function(err){
+        console.log('Error upvoting caption: ', err);
+      });
   }, 
   downVoteCaption: function (captionId) {
-    // schemas.Caption.findOne({ where: {id: captionId} })
-    //   .then(function () {
-    //     //reset/ overwrite that Caption's dislikes to dislikes++
-    //   })
-    //   .catch(function(err){
-    //     console.log('Error upvoting caption: ', err);
-    //   });
+    schemas.Caption.findOne({ where: {id: captionId} })
+      .then(function () {
+        //reset/ overwrite that Caption's dislikes to dislikes++
+        var oldVal = caption.dislikes;
+        caption.update({
+          dislikes: oldVal - 1
+        });
+      })
+      .then(function (updatedCaption){
+        return updatedCaption.likes;
+      })
+      .catch(function(err){
+        console.log('Error upvoting caption: ', err);
+      });
   },
   displayCaptionVotes: function (captionId) {
     //find likes
+    schemas.Caption.findOne()
     //find dislikes
     //add them together and return that number.
   }
