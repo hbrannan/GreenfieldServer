@@ -14,7 +14,7 @@ module.exports = {
     var newUser = schemas.User.build(userPost);
     newUser.save()
     .then(function(newUser){
-      console.log('userPostsucceeded!!');
+      console.log('userPostsucceeded!!', newUser);
       return newUser;
     })
     .catch(function(err) {
@@ -29,6 +29,7 @@ module.exports = {
   getUserInfo: function (queryBody) {
     schemas.User.findOne({ where: {captionId: queryBody.captionId} })
       .then(function(User) {
+        console.log(User)
         return User;
       })
       .catch(function(err) {
@@ -113,7 +114,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
     var newCaption = schemas.Caption.build(captionPost);
     newCaption.save()
       .then(function(newCaption){
-        console.log('yusssss successs!');
+        console.log('yusssss successs! new caption is ', newCaption);
         return newCaption;
       })
       .catch(function(err){
