@@ -109,7 +109,8 @@ app.get('/captions/giveusthisday', function (req, res) {
 app.post('/captions/giveusthisday', function (req, res) {
 	// console.log('POSTING TO CAPTIONS...req is:', req)
 	console.log(req.body)
-	res.send(utils.postCaption(req.body));
+	utils.postCaption(req.body, res.send)
+
 });
 
 //endpoint for upvoting captions: 

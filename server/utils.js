@@ -107,8 +107,6 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       photoId: reqBody.photoId,
       caption_top: reqBody.caption_top,
       caption_bottom: reqBody.caption_bottom,
-      likes: reqBody.likes,
-      dislikes: reqBody.dislikes,
       font: reqBody.font
     };
     var newCaption = schemas.Caption.build(captionPost);
