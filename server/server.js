@@ -4,6 +4,7 @@ var express = require('express');
 // var pg = require('pg');
 var utils = require('./utils.js');
 var bodyParser = require('body-parser');
+var Q = require('q');
 
 ////SET VARIABLES  
 var port = 3000;
@@ -19,6 +20,8 @@ app.use(express.static(__dirname + '/../dummy.html'));
 
 
 /////////MIDDLEWARE//////////
+var fetchDaPhoto = Q.nbind(utils.getDailyPhoto, utils);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(require('express-promise')());
@@ -53,7 +56,13 @@ app.post('/photos', function (req, res) {
 });
 
 app.get('/photos/giveusthisday', function(req, res) {
-	res.send(utils.getDailyPhoto());
+	fetchDaPhoto()
+	.then(function(daPhoto) {
+		res.send(daPhoto);
+	})
+	.catch(function(err){
+		console.log('Lilith strikes again: ', err);
+	});
 })
 
 ///////////////CAPTIONS SECTION
