@@ -101,9 +101,9 @@ FROM captions AS caption WHERE caption.photo_id = 1;
           likes: oldVal + 1
         });
       })
-      .then(function (updatedCaption){
-        return updatedCaption.likes;
-      })
+      // .then(function (updatedCaption){
+      //   return updatedCaption.likes;
+      // })
       .catch(function(err){
         console.log('Error upvoting caption: ', err);
       });
