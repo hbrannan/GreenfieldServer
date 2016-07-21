@@ -28,6 +28,12 @@ const User = sequelize.define('user', {
 		},
 		email: {
 			type: Sequelize.STRING
+		},
+		fb_username: {
+			type: Sequelize.STRING
+		},
+		fb_access: {
+			type: Sequelize.STRING
 		}
 	}, {
 		timestamps: false
@@ -45,7 +51,7 @@ const Photo = sequelize.define('photo', {
 		data: {
 			type: Sequelize.STRING
 		}
-    });
+  });
 
 
 ////// CAPTION
@@ -62,9 +68,9 @@ const Caption = sequelize.define('caption', {
 		caption_bottom: {
 			type: Sequelize.STRING
 		}
-    }, {
+  }, {
 		timestamps: false
-    });
+  });
 
 
 /*source --- target*/
