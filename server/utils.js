@@ -30,10 +30,8 @@ module.exports = {
       cb(err);
     })
   },
-  getDailyPhotoId: function () {
-    return getDailyPhoto(function (photoDataVals) {
+  getDailyPhotoId: function (photoDataVals) {
       return photoDataVals.id;
-    });
   },
   postPhoto: function (reqBody) {
     var photoPost = {
@@ -62,10 +60,11 @@ module.exports = {
     })
   },
   getPhotoCaptions: function  (cb) {
-    console.log('hi');
-    
-    // schemas.Caption.findAll({ where: {photo_id}})
-    // function to get all images/captions for the day
+    //get the daily photo
+    //get the daily photoID
+    console.log(getDailyPhoto(getDailyPhotoId));
+    //pass that ID as a where param 
+    // schemas.Caption.findAll({ where: {photo_id= }});
     // includes: caption text, image URL, vote count, user who posted ?
   },
   postCaption: function (caption) {
