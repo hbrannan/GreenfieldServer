@@ -114,7 +114,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       userId: reqBody.userId,
       photoId: reqBody.photoId,
       caption_top: reqBody.caption_top,
-      caption_bottom: reqBody.caption_bottom
+      caption_bottom: reqBody.caption_bottom,
       font: reqBody.font
     };
     console.log('captionPost is', captionPost)
