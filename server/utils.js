@@ -75,7 +75,6 @@ FROM captions AS caption WHERE caption.photo_id = 1;
   postCaption: function (reqBody) {
     console.log(reqBody);
     var captionPost = {
-      id: reqBody.id,
       userId: reqBody.userId,
       photoId: reqBody.photoId,
       caption_top: reqBody.caption_top,
@@ -87,7 +86,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
     var newCaption = schemas.Caption.build(captionPost);
     newCaption.save()
       .then(function(newCaption){
-        console.log('successs!');
+        console.log('yusssss successs!');
         return newCaption;
       })
       .catch(function(err){
