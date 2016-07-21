@@ -36,7 +36,7 @@ module.exports = {
 
     //check if photo is duplicate
     schemas.Photo.findOne({ where: {url: reqBody.url} }).then(function(photo) {
-      if (photo.length === 0) {
+      if (!photo.length) {
         console.log('no photo like that in our db, posting...')
         var newPhoto = schemas.Photo.build(photoPost);
         newPhoto.save()
