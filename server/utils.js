@@ -109,6 +109,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       caption_bottom: reqBody.caption_bottom,
       font: reqBody.font
     };
+    console.log('captionPost is,' captionPost)
     var newCaption = schemas.Caption.build(captionPost);
     newCaption.save()
       .then(function(newCaption){
@@ -117,6 +118,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       })
       .catch(function(err){
         console.log('Error in caption post: ', err);
+        cb(err)
       });
   },
   upVoteCaption: function (captionId) {
