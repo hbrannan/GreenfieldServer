@@ -128,7 +128,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
         const captionVotes = {
           likes: caption.likes,
           dislikes: caption.dislikes,
-          total: likes + dislikes
+          total: caption.likes + caption.dislikes
          }
         return captionVotes;
       })
