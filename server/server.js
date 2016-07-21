@@ -85,6 +85,7 @@ app.get('/captions', function (req, res) {
 
 //user posts caption on a photo
 app.post('/captions', function (req, res) {
+	console.log('REQQ', req.body);
 	res.send(utils.postCaption(req.body));
 });
 

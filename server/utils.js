@@ -73,7 +73,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   postCaption: function (reqBody) {
-    console.log(reqBody);
+    console.log('nn postCaption', reqBody);
     var captionPost = {
       userId: reqBody.userId,
       photoId: reqBody.photoId,
