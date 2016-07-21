@@ -71,8 +71,7 @@ app.get('/captions', function (req, res) {
 		if (photoOrErr instanceof Error){
 			console.log('Error retrieving daily photo: ', err);
 		} else {
-			console.log(photoOrErr);
-			//return photoOrErr.id
+			console.log('expect 1 to equal', photoOrErr.id);
 		}
 	});
 	//then:    ***OF DAILY PHOTO ID***
