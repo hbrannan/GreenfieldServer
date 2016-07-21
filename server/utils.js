@@ -93,6 +93,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   upVoteCaption: function (captionId) {
+    console.log(captionId)
     schemas.Caption.findOne({ where: {id: captionId} })
       .then(function (caption) {
         var oldVal = caption.likes;
