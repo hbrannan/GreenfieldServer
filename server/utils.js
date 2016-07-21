@@ -110,7 +110,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       font: reqBody.font
     };
     console.log('captionPost is', captionPost)
-    const newCaption = schemas.Caption.build(captionPost);
+    const newCaption = schemas.Caption.create(captionPost);
     newCaption.save()
       .then(function(newCaption){
         console.log('yusssss successs! new caption is ', newCaption);
