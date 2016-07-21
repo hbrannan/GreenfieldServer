@@ -15,7 +15,7 @@ module.exports = {
     newUser.save()
     .then(function(result){
       console.log('userPostsucceeded!!', result);
-      cb(result.id);
+      cb(result.dataValues.id);
     })
     .catch(function(err) {
       console.log(err);
@@ -111,11 +111,11 @@ FROM captions AS caption WHERE caption.photo_id = 1;
        "font", "createdAt", "updatedAt";
     */
     const captionPost = {
-      // userId: reqBody.userId,
-      // photoId: reqBody.photoId,
+      userId: reqBody.userId,
+      photoId: reqBody.photoId,
       caption_top: reqBody.caption_top,
       caption_bottom: reqBody.caption_bottom
-      // font: reqBody.font
+      font: reqBody.font
     };
     console.log('captionPost is', captionPost)
     schemas.Caption.build(captionPost).save()
