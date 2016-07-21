@@ -51,9 +51,15 @@ app.put('/users/info', function (req, res) {
 
 //adding a new user
 app.post('/users/create', function (req, res) {
-    console.log('reqBod in UssRpossst', req.body);
+    console.log('req in UssRpossst', req);
     res.send(utils.addUser(req.body));
 });
+
+//checking fb access to authenticate?
+app.post('/users/authenticated', function(req, res) {
+	console.log('user is being authenticated')
+
+})
 
 ////////////////////////////////////
 //////////////////PHOTOS SECTION

@@ -7,7 +7,6 @@ module.exports = {
       first_name: reqBody.first_name,
       last_name: reqBody.last_name,
       email: reqBody.email,
-      captionId: reqBody.captionId,
       fb_username: reqBody.hashtagId,
       fb_access: reqBody.data,
       photo: reqBody.photo
@@ -23,9 +22,9 @@ module.exports = {
     });
   },
   updateUserInfo: function (reqBody) {
-    var newUserInfo = {
-      first_name: reqBody.first_name
-    }
+    // var newUserInfo = {
+    //   first_name: reqBody.first_name
+    // }
   },
   getUserInfo: function (queryBody) {
     schemas.User.findOne({ where: {captionId: queryBody.captionId} })
@@ -35,6 +34,9 @@ module.exports = {
       .catch(function(err) {
         console.error(err);
       })
+  },
+  authenticateUser: function() {
+    schemas.User.findOne({ where: { userId }})
   },
   getAllPhotos: function  () {
     schemas.Photo.findAll({})
