@@ -2,7 +2,25 @@ var schemas = require('./schemas.js');
 
 module.exports = {
   addUser: function (reqBody) {
-
+    console.log('userReq',reqBody);
+    var userPost = {
+      first_name: reqBody.first_name,
+      last_name: reqBody.last_name,
+      email: reqBody.email,
+      captionId: reqBody.captionId,
+      fb_username: reqBody.hashtagId,
+      fb_access: reqBody.data,
+      photo: reqBody.photo
+    };
+    var newUser = schemas.User.build(user);
+    newUser.save()
+    .then(function(newUser){
+      console.log('userPostsucceeded!!');
+      return newUser;
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
   },
   updateUserInfo: function (user) {
 

@@ -35,14 +35,23 @@ app.get('/', function (req, res) {
 
 ////////////////////////////////////
 ////////////////USERS SECTION
-//get sign-in info>
+
+//retrieving sign in info
 app.get('/users/signin', function (req, res) {
-	res.send('bichez b signing in');
+	console.log('bichez b signing in');
+  console.log('signN reqBody shoudl B singL usR', req.body);
+  res.send(utils.getUserInfo(req.body));
 });
 
-//add a new user
+//updating sign-in info
+app.put('/users/signin', function (req, res) {
+    console.log('updatesignN reqBody (usR)', req.body);
+    res.send(utils.updateUserInfo(req.body));
+});
+//adding a new user
 app.post('/users/create', function (req, res) {
-	res.send('bichez b signing in');
+    console.log('reqBod in UsRpossst', req.body);
+    res.send(utils.addUser(req.body));
 });
 
 ////////////////////////////////////
