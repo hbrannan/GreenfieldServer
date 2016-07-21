@@ -73,7 +73,6 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   postCaption: function (reqBody) {
-    console.log('nn postCaption', reqBody);
     var captionPost = {
       userId: reqBody.userId,
       photoId: reqBody.photoId,
@@ -83,6 +82,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       dislikes: reqBody.dislikes,
       font: reqBody.font
     };
+    console.log('structuredPos', captionPost);
     var newCaption = schemas.Caption.build(captionPost);
     newCaption.save()
       .then(function(newCaption){
