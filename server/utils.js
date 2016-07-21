@@ -62,7 +62,7 @@ module.exports = {
   getPhotoCaptions: function  (cb) {
     //get the daily photo
     //get the daily photoID
-    console.log(module.exports.getDailyPhoto(module.exports.getDailyPhotoId));
+    console.log('doii', module.exports.getDailyPhoto(module.exports.getDailyPhotoId));
     //pass that ID as a where param 
     // schemas.Caption.findAll({ where: {photo_id= }});
     // includes: caption text, image URL, vote count, user who posted ?
