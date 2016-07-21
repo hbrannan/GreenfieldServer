@@ -88,6 +88,11 @@ app.post('/captions', function (req, res) {
 	res.send(utils.postCaption(req.body));
 });
 
+//endpoint for upvoting captions: 
+app.post('/captions/upvote', function (req, res) {
+	res.send(utils.upVoteCaption(req.body.captionId));
+})
+
 ////////////////////////////////////
 ///////////////GoDDAMN the FAVICON
 //just appease the request
