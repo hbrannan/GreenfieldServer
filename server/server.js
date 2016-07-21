@@ -107,6 +107,7 @@ app.get('/captions/giveusthisday', function (req, res) {
 
 //user posts caption on a photo
 app.post('/captions/giveusthisday', function (req, res) {
+	console.log('POSTING TO CAPTIONS...req is:', req)
 	res.send(utils.postCaption(req.body));
 });
 
