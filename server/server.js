@@ -58,7 +58,7 @@ app.post('/photos', function (req, res) {
 app.get('/photos/giveusthisday', function(req, res) {
 	console.log(fetchDaPhoto);
 	fetchDaPhoto()
-	.then(function(daPhoto) {
+	.done(function(daPhoto) {
 		res.send(daPhoto);
 	})
 	.catch(function(err){
