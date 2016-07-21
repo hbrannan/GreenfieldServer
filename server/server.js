@@ -79,8 +79,13 @@ app.post('/photos', function (req, res) {
           user posts would go to both? 
 */
 
+app.get('/captions', function(req, res) {
+	utils.getAllCaptions(res.send)
+})
+
+
 //get all captions for daily photo
-app.get('/captions', function (req, res) {
+app.get('/captions/giveusthisday', function (req, res) {
 	// get the id of daily photo.
 	return utils.getDailyPhoto(function (photoOrErr){
 		if (photoOrErr instanceof Error){
