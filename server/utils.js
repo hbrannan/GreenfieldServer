@@ -59,7 +59,11 @@ module.exports = {
     })
   },
   getPhotoCaptions: function  (photoId, cb) {
-    schemas.Caption.findAll({ where: {photo_id: photoId}})
+    /*do this with pure sql: 
+SELECT id, likes, dislikes, caption_top, caption_bottom, user_id, photo_id 
+FROM captions AS caption WHERE caption.photo_id = 1;
+    */
+    schemas.Caption.findAll({ where: {photoId: photoId}})
       .then(function (captions) {
         cb(captions);
       })

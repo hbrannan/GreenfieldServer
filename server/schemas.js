@@ -101,6 +101,8 @@ var Caption = sequelize.define('caption', {
 //DEFINE HASHTAG RELATIONSHIPS 
 // Hashtag.belongsToMany(Photo);
 //DEFINE USER RELATIONSHIPS 
+
+/*source --- target*/
 User.hasMany(Caption);
 //DEFINE CAPTION RELATIONSHIPS 
 Caption.belongsTo(User);
@@ -111,7 +113,6 @@ Photo.hasMany(Caption);
 /////may want Photo to belong to user as an extension !!
 sequelize.sync();
 
-console.log(sequelize.models);
 
 module.exports = {
 	User: User,
