@@ -63,6 +63,7 @@ app.post('/photos', function (req, res) {
 
 ////////////////////////////////////
 ///////////////CAPTIONS SECTION
+
 /*YO!! maybe have /captions be ALL captions
    and /captions/giveusourdaily bet daily captions
           user posts would go to both? 
@@ -76,7 +77,7 @@ app.get('/captions', function (req, res) {
 			console.log('Error retrieving daily photo: ', err);
 		} else {
 		//then: get all captions of that photo!
-			return utils.getPhotoCaptions(photoOrErr.id,res.send);
+			return utils.getPhotoCaptions(photoOrErr.id, res.send);
 		}
 	});
 	 
@@ -84,7 +85,7 @@ app.get('/captions', function (req, res) {
 
 //user posts caption on a photo
 app.post('/captions', function (req, res) {
-	res.send('bichez b postin up word');
+	res.send(utils.postCaption(req.body));
 });
 
 ////////////////////////////////////

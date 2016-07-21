@@ -33,11 +33,6 @@ var User = sequelize.define('user', {
 		timestamps: false
 	});
 
-///create/upate user table if does not already exists
-// User.sync()
-//   .catch(function(err) {
-//   	console.error(err)
-//   });
 
 ////// PHOTO
 var Photo = sequelize.define('photo', {
@@ -51,12 +46,6 @@ var Photo = sequelize.define('photo', {
 			type: Sequelize.STRING
 		}
     });
-
-//sync tabe w db if not exists
-// Photo.sync()
-//   .catch(function(err) {
-//   	console.error(err)
-//   });
 
 
 ////// CAPTION
@@ -77,30 +66,6 @@ var Caption = sequelize.define('caption', {
 		timestamps: false
     });
 
-//sync tabe w db if not exists
-// Caption.sync()
-//   .catch(function(err) {
-//   	console.error(err)
-//   });
-
-
-
-////// HASHTAG
-// var Hashtag = sequelize.define('hashtag', {
-// 	hashtag: {
-// 		type: Sequelize.STRING
-// 	}
-// });
-
-//sync tabe w db if not exists
-// Hashtag.sync()
-//   .catch(function(err) {
-//   	console.error(err)
-//   });
-
-//DEFINE HASHTAG RELATIONSHIPS 
-// Hashtag.belongsToMany(Photo);
-//DEFINE USER RELATIONSHIPS 
 
 /*source --- target*/
 User.hasMany(Caption);

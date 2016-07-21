@@ -73,25 +73,25 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   postCaption: function (reqBody) {
-    // console.log(reqBody);
-    // var captionPost = {
-    //   id: reqBody.id,
-    //   user_id: reqBody.user_id,
-    //   photo_id: reqBody.photo_id,
-    //   caption_top: reqBody.caption_top,
-    //   caption_bottom: reqBody.caption_bottom,
-    //   likes: reqBody.likes,
-    //   dislikes: reqBody.dislikes,
-    //   font: reqBody.font
-    // };
-    // var newCaption = schemas.Caption.build(captionPost);
-    // newCaption.save()
-    //   .then(function(newCaption){
-    //     return newCaption
-    //   })
-    //   .catch(function(err){
-    //     console.log('Error in caption post: ', err);
-    //   })
+    console.log(reqBody);
+    var captionPost = {
+      id: reqBody.id,
+      userId: reqBody.userId,
+      photoId: reqBody.photoId,
+      caption_top: reqBody.caption_top,
+      caption_bottom: reqBody.caption_bottom,
+      likes: reqBody.likes,
+      dislikes: reqBody.dislikes,
+      font: reqBody.font
+    };
+    var newCaption = schemas.Caption.build(captionPost);
+    newCaption.save()
+      .then(function(newCaption){
+        return newCaption
+      })
+      .catch(function(err){
+        console.log('Error in caption post: ', err);
+      })
   },
   upVoteCaption: function (captionId) {
     // schemas.Caption.findOne({ where: {id: captionId} })
