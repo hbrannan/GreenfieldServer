@@ -57,10 +57,10 @@ app.post('/photos', function (req, res) {
 
 app.get('/photos/giveusthisday', function(req, res) {
 	console.log(fetchDaPhoto);
-	fetchDaPhoto()
-	.done(function(daPhoto) {
-		res.send(daPhoto);
-	})
+	fetchDaPhoto(res.send);
+	// .done(function(daPhoto) {
+	// 	res.send(daPhoto);
+	// })
 	// .catch(function(err){
 	// 	console.log('Lilith strikes again: ', err);
 	// });

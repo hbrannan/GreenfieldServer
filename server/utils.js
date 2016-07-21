@@ -20,13 +20,14 @@ module.exports = {
         console.log('Sweetie, youll get there, keep trying, k?', err);
       });
   },
-  getDailyPhoto: function () {
+  getDailyPhoto: function (cb) {
     // function to update user info from a settings page ( or elsewhere? )
     schemas.Photo.findOne({ where: { source: "imgur" }})
     .then(function(photo) {
-      return photo;
+       cb(photo.dataValues);
     }).catch( function(err) {
       console.log('uh oh!!!! there\'s an error: ', err);
+      cb(err);
     })
   },
   postPhoto: function (reqBody) {
