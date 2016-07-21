@@ -40,17 +40,18 @@ app.get('/', function (req, res) {
 app.get('/users/info', function (req, res) {
 	console.log('bichez b signing in');
   console.log('signN reqBody shoudl B singL usR', req.body);
-  res.send(utils.getUserInfo(req.body));
+  res.send(utils.getUserInfo(queryBody));
 });
 
-//updating sign-in info
+//updating sign-in info MVP?!??!!?
 app.put('/users/info', function (req, res) {
     console.log('updatesignN reqBody (usR)', req.body);
     res.send(utils.updateUserInfo(req.body));
 });
+
 //adding a new user
 app.post('/users/create', function (req, res) {
-    console.log('reqBod in UsRpossst', req.body);
+    console.log('reqBod in UssRpossst', req.body);
     res.send(utils.addUser(req.body));
 });
 

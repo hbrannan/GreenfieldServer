@@ -22,11 +22,19 @@ module.exports = {
       console.log(err);
     });
   },
-  updateUserInfo: function (user) {
-
+  updateUserInfo: function (reqBody) {
+    var newUserInfo = {
+      first_name: reqBody.first_name
+    }
   },
-  getUserInfo: function (user) {
-
+  getUserInfo: function (queryBody) {
+    schemas.User.findOne({ where: {captionId: queryBody.captionId} })
+      .then(function(User) {
+        return User;
+      })
+      .catch(function(err) {
+        console.error(err);
+      })
   },
   getAllPhotos: function  () {
     schemas.Photo.findAll({})
