@@ -31,7 +31,7 @@ module.exports = {
     //   hashtagId: reqBody.hashtagId,
     //   data: reqBody.data
     // };
-    console.log('reqBody', reqBody);
+    // console.log('reqBody', reqBody);
 
     // var newPhoto = schemas.Photo.build(photoPost);
     // newPhoto.save()

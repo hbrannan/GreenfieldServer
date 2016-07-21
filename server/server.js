@@ -41,7 +41,9 @@ app.get('/photos', function (req, res) {
 });
 
 app.post('/photos', function (req, res) {
-	var result = utils.postPhoto(JSON.parse(req.body));
+	console.log('req izzzzz', req);
+	var parsedReqBody = JSON.parse(req.body);
+	var result = utils.postPhoto(parsedReqBody);
 	res.send(result);
 });
 
