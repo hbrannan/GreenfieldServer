@@ -121,7 +121,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   // returns the likes, dislikes, and total votes of a caption
-  displayCaptionVotes: function (captionId) {
+  displayCaptionVotes: function (captionId, callback) {
     //find likes
     schemas.Caption.findOne({ where: { id: captionId } })
       .then(function (caption) {
@@ -130,7 +130,8 @@ FROM captions AS caption WHERE caption.photo_id = 1;
           dislikes: caption.dislikes,
           total: caption.likes + caption.dislikes
          }
-        return captionVotes;
+         console.log(captionVotes);
+        callback(captionVotes);
       })
       .catch(function(err) {
         console.log('Error getting caption votes: ', err);
