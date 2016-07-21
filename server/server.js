@@ -89,7 +89,7 @@ app.post('/captions', function (req, res) {
 });
 
 //endpoint for upvoting captions: 
-app.post('/captions/upvote', function (req, res) {
+app.put('/captions/upvote', function (req, res) {
 	res.send(utils.upVoteCaption(req.body.captionId));
 })
 
