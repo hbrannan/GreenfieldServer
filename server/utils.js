@@ -133,7 +133,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
         return captionVotes;
       })
       .catch(function(err) {
-        console.log('Error upvoting caption: ', err);
+        console.log('Error getting caption votes: ', err);
       })
   }
 };
