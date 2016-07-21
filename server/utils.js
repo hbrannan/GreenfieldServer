@@ -87,11 +87,12 @@ FROM captions AS caption WHERE caption.photo_id = 1;
     var newCaption = schemas.Caption.build(captionPost);
     newCaption.save()
       .then(function(newCaption){
-        return newCaption
+        console.log('successs!');
+        return newCaption;
       })
       .catch(function(err){
         console.log('Error in caption post: ', err);
-      })
+      });
   },
   upVoteCaption: function (captionId) {
     // schemas.Caption.findOne({ where: {id: captionId} })
