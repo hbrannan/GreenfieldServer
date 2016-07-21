@@ -101,7 +101,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
         cb(err);
       });
   },
-  postCaption: function (reqBody) {
+  postCaption: function (reqBody, cb) {
     var captionPost = {
       userId: reqBody.userId,
       photoId: reqBody.photoId,
@@ -115,7 +115,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
     newCaption.save()
       .then(function(newCaption){
         console.log('yusssss successs! new caption is ', newCaption);
-        return newCaption;
+        cb(newCaption);
       })
       .catch(function(err){
         console.log('Error in caption post: ', err);
