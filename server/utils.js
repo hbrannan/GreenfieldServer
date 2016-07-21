@@ -61,9 +61,10 @@ module.exports = {
       }
     })
   },
-  getPhotoCaptions: function  (photo) {
+  getPhotoCaptions: function  (cb) {
     console.log('hi');
-    schemas.Caption.findAll({ where: {photo_id}})
+    
+    // schemas.Caption.findAll({ where: {photo_id}})
     // function to get all images/captions for the day
     // includes: caption text, image URL, vote count, user who posted ?
   },

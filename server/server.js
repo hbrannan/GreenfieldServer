@@ -59,7 +59,7 @@ app.get('/photos/giveusthisday', function(req, res) {
 
 ///////////////CAPTIONS SECTION
 app.get('/captions', function (req, res) {
-	res.send('bichez b getten the word');
+	utils.getPhotoCaptions(res.send);
 });
 
 app.post('/captions', function (req, res) {
