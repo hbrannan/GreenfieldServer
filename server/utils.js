@@ -102,9 +102,10 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   postCaption: function (reqBody, cb) {
-    const captionPost = {
+    //likes, dislikes
       // userId: reqBody.userId,
       // photoId: reqBody.photoId,
+    const captionPost = {
       caption_top: reqBody.caption_top,
       caption_bottom: reqBody.caption_bottom,
       font: reqBody.font
