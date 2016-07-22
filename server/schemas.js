@@ -57,7 +57,8 @@ const Photo = sequelize.define('photo', {
 ////// CAPTION
 const Caption = sequelize.define('caption', {
 		id: {
-			primaryKey: true
+			primaryKey: true,
+			type: DataTypes.UUID
 		},
 		likes: {
 			type: Sequelize.INTEGER
