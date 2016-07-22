@@ -57,8 +57,8 @@ app.post('/users/create', function (req, res) {
 
 //checking fb access to authenticate?
 app.post('/users/authenticated', function(req, res) {
-	console.log('user is being authenticated')
-})
+	console.log('user is being authenticated');
+});
 
 ////////////////////////////////////
 //////////////////PHOTOS SECTION
@@ -85,8 +85,8 @@ app.post('/photos', function (req, res) {
 */
 
 app.get('/captions', function(req, res) {
-	utils.getAllCaptions(res.send)
-})
+	utils.getAllCaptions(res.send);
+});
 
 
 //get all captions for daily photo
@@ -107,24 +107,24 @@ app.get('/captions/giveusthisday', function (req, res) {
 //user posts caption on a photo
 app.post('/captions/giveusthisday', function (req, res) {
 	// res.json('posting to captions' + utils.postCaption(req.body))
-	utils.postCaption(req.body, res.json)
+	utils.postCaption(req.body, res.json);
 });
 
 //endpoint for upvoting captions: 
 app.put('/captions/upvote', function (req, res) {
 	res.send(utils.upVoteCaption(req.body.captionId));
-})
+});
 
 //endpoint for downvoting captions
 app.put('/captions/downvote', function (req, res) {
 	res.send(utils.downVoteCaption(Number(req.body.captionId)));
-})
+});
 
 
 //endpoint for getting likes, dislikes, total votes
 app.get('/captions/getvotes', function (req, res) {
-	utils.displayCaptionVotes(req.query.captionId, res.send)
-})
+	utils.displayCaptionVotes(req.query.captionId, res.send);
+});
 
 
 ////////////////////////////////////
