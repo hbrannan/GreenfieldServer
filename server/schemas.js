@@ -67,7 +67,7 @@ const Caption = sequelize.define('caption', {
 		}, 
 		caption_bottom: {
 			type: Sequelize.STRING
-		}
+		}},
   	// userId: {
   	// 	type: Sequelize.STRING
   	// },
@@ -77,6 +77,9 @@ const Caption = sequelize.define('caption', {
   	// font: {
   	// 	type: Sequelize.STRING
   	// }
+  // },
+  {
+		timestamps: false
   });
 
 //WE MAY NOT NEED TO DEFINE RELATIONSHIPS AS THESE ARE BEING DEFINED IN POSTICO. 
