@@ -101,7 +101,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
         cb(err);
       });
   },
-  postCaption: function (reqBody) {
+  postCaption: function (reqBody, cb) {
     /*
     INSERT INTO "public"."captions"("userId", 
       "caption_top", "caption_bottom", "photoId") 
@@ -122,11 +122,11 @@ FROM captions AS caption WHERE caption.photo_id = 1;
     newCap.save()
       .then(function(newPost){
         console.log('yusssss successs! new caption is ');
-        return newPost;
+        cb(newPost);
       })
       .catch(function(err){
         console.log('Error in caption post: ', err);
-        return err;
+        cb(err);
       });
   },
   upVoteCaption: function (captionId) {
