@@ -83,12 +83,12 @@ const Caption = sequelize.define('caption', {
 
 
 /*source --- target*/
-User.hasMany(Caption);
-//DEFINE CAPTION RELATIONSHIPS 
-Caption.belongsTo(User);
-// Caption.belongsTo(Photo);
-//DEFINE PHOTO RELATIONSHIPS 
-Photo.hasMany(Caption);
+// User.hasMany(Caption);
+// //DEFINE CAPTION RELATIONSHIPS 
+// Caption.belongsTo(User);
+// // Caption.belongsTo(Photo);
+// //DEFINE PHOTO RELATIONSHIPS 
+// Photo.hasMany(Caption);
 // Photo.hasMany(Hashtag);
 /////may want Photo to belong to user as an extension !!
 sequelize.sync();
