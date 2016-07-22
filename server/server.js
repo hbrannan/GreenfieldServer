@@ -1,18 +1,13 @@
 ///LIST DEPENDENCIES
 const express = require('express');
-// const Sequelize = require('sequelize');
-// const pg = require('pg');
 const utils = require('./utils.js');
 const bodyParser = require('body-parser');
-// const Q = require('q');
-
-////SET VARIABLES  
-const port = 3000;
+const altPort = 3000;
 
 ////CONNECT TO SERVER
 const app = express();
-app.listen(process.env.PORT || port, function () {
-	console.log('Server listening at ' + port);
+app.listen(process.env.PORT || altPort, function () {
+	console.log('Server listening at ' + altPort);
 });
 
 
@@ -20,7 +15,6 @@ app.use(express.static(__dirname + '/../dummy.html'));
 
 
 /////////MIDDLEWARE//////////
-// const fetchDaPhoto = Q.nbind(utils.getDailyPhoto, utils);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -79,11 +73,6 @@ app.post('/photos', function (req, res) {
 ////////////////////////////////////
 ///////////////CAPTIONS SECTION
 
-/*YO!! maybe have /captions be ALL captions
-   and /captions/giveusourdaily bet daily captions
-          user posts would go to both? 
-*/
-
 app.get('/captions', function(req, res) {
 	utils.getAllCaptions(res.send);
 });
@@ -106,7 +95,6 @@ app.get('/captions/giveusthisday', function (req, res) {
 
 //user posts caption on a photo
 app.post('/captions/giveusthisday', function (req, res) {
-	// res.json('posting to captions' + utils.postCaption(req.body))
 	utils.postCaption(req.body, res.json);
 });
 
@@ -128,7 +116,7 @@ app.get('/captions/getvotes', function (req, res) {
 
 
 ////////////////////////////////////
-///////////////GoDDAMN the FAVICON
+/////////////// FAVICON:
 //just appease the request
 app.get('/favicon.ico', function (req, res) {
 	res.sendStatus(200);

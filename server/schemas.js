@@ -67,21 +67,21 @@ const Caption = sequelize.define('caption', {
 		}, 
 		caption_bottom: {
 			type: Sequelize.STRING
-		},
-  	userId: {
-  		type: Sequelize.STRING
-  	},
-  	photo_id: {
-  		type: Sequelize.STRING
-  	},
-  	font: {
-  		type: Sequelize.STRING
-  	}
-  }, {
-		timestamps: false
-  });
+		}
+  	// userId: {
+  	// 	type: Sequelize.STRING
+  	// },
+  	// photo_id: {
+  	// 	type: Sequelize.STRING
+  	// },
+  	// font: {
+  	// 	type: Sequelize.STRING
+  	// }
+  },);
 
-
+//WE MAY NOT NEED TO DEFINE RELATIONSHIPS AS THESE ARE BEING DEFINED IN POSTICO. 
+//so far as I can tell, this does not effect our error, but also causes no additional errors. 
+//I propose we leave it out until we can find a need to reintroduce it :)
 /*source --- target*/
 // User.hasMany(Caption);
 // //DEFINE CAPTION RELATIONSHIPS 
