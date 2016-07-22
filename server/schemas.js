@@ -71,7 +71,7 @@ const Caption = sequelize.define('caption', {
   	userId: {
   		type: Sequelize.STRING
   	},
-  	photoId: {
+  	photo_id: {
   		type: Sequelize.STRING
   	},
   	font: {
