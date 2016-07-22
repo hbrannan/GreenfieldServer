@@ -102,17 +102,9 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   postCaption: function (reqBody, cb) {
-    /*
-    INSERT INTO "public"."captions"("userId", 
-      "caption_top", "caption_bottom", "photoId") 
-      VALUES(1, 'testing', 'testtttting', 1) 
-      RETURNING "id", "userId", "caption_top", 
-      "caption_bottom", "photoId", "likes", "dislikes",
-       "font", "createdAt", "updatedAt";
-    */
     const captionPost = {
-      userId: reqBody.userId,
-      photoId: reqBody.photoId,
+      // userId: reqBody.userId,
+      // photoId: reqBody.photoId,
       caption_top: reqBody.caption_top,
       caption_bottom: reqBody.caption_bottom,
       font: reqBody.font
