@@ -77,7 +77,7 @@ const Caption = sequelize.define('caption', {
   	// font: {
   	// 	type: Sequelize.STRING
   	// }
-  },);
+  });
 
 //WE MAY NOT NEED TO DEFINE RELATIONSHIPS AS THESE ARE BEING DEFINED IN POSTICO. 
 //so far as I can tell, this does not effect our error, but also causes no additional errors. 
