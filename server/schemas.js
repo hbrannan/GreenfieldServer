@@ -1,4 +1,4 @@
-const db = require('./server.js');
+const server = require('./server.js'); //don't need this
 const Sequelize = require('sequelize');
 
 ///(why) do we need this? 
@@ -11,7 +11,7 @@ const sequelize = new Sequelize('postgres://qntzeozetttxxe:JDkRS8aTusHyPjDmp-YcW
 
 
 ////////////POSTGRES Tables/////////
-///////////ORM sequelize////////////
+///////////ORM: sequelize////////////
 
 
 ////// USER
@@ -86,7 +86,7 @@ const Caption = sequelize.define('caption', {
 User.hasMany(Caption);
 //DEFINE CAPTION RELATIONSHIPS 
 Caption.belongsTo(User);
-Caption.belongsTo(Photo);
+// Caption.belongsTo(Photo);
 //DEFINE PHOTO RELATIONSHIPS 
 Photo.hasMany(Caption);
 // Photo.hasMany(Hashtag);
