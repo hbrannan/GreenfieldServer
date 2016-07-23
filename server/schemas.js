@@ -23,9 +23,9 @@ const User = sequelize.define('user', {
 		last_name: {
 			type: Sequelize.STRING
 		},
-		login_or_password : {
-			type: Sequelize.STRING
-		},
+		// login_or_password : {
+		// 	type: Sequelize.STRING
+		// },
 		email: {
 			type: Sequelize.STRING
 		},
