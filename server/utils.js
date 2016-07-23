@@ -27,7 +27,7 @@ module.exports = {
         console.log('User already in database.');
         cb('User already in database.');
       }
-    }
+    })
   },
   updateUserInfo: function (reqBody) {
     // const newUserInfo = {
