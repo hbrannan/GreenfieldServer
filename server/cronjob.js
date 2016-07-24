@@ -5,12 +5,13 @@ const fs = require('fs');
 
 module.exports = new cron('10 0 0 * * *', function () {
     fs.readFile('./usedPhotosOfTheDay.txt', 'utf8', function(err, data){
-        console.log( data.toString().split('\n'));
+        return data.toString().split('\n');
         //this should return an array of lines
     });
-    // .then(function(){
-    //     //get last one
-    // })
+    .then(function(linesArray){
+        //get last one
+        return linesArray[linesArray.length-1];
+    })
     // .then(function (lastId) {
     //     db.findAll({where: ['id > ?', lastId], order: 'id'})
     // })
@@ -28,10 +29,13 @@ module.exports = new cron('10 0 0 * * *', function () {
     //           //wipe fsfile clean
     //     }
     // })
-    // .then(function (){
-    //     fs.appendFile('./usedPhotosOfTheDay.txt', newPhotoOfTheDayId, function (){
-    //         ///make sure to write with newLine
-    //     });
-    //   })
+    .then(function (newPhotoOfTheDayId){
+        fs.appendFile('./usedPhotosOfTheDay.txt', newPhotoOfTheDayId, function (err){
+          if (err) {
+            throw err;
+        }
+          console.log('The "data to append" was appended to file!');
+        });
+    });
 
 });
