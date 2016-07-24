@@ -66,7 +66,7 @@ app.get('/photos/giveusthisday', function(req, res) {
 });
 //get all of the photos
 app.get('/photos', function (req, res) {
-	res.send(utils.getAllPhotos());
+	utils.getAllPhotos(res.json)
 });
 // user adds a photo
 app.post('/photos', function (req, res) {	
