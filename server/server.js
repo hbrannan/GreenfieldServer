@@ -32,20 +32,16 @@ app.get('/', function (req, res) {
 
 //retrieving sign in info
 app.get('/users/info', function (req, res) {
-	console.log('bichez b signing in');
-  console.log('signN reqBody shoudl B singL usR', req.body);
-  res.send(utils.getUserInfo(req.query));
+  utils.getUserInfo(req.query, res.json);
 });
 
 //updating sign-in info MVP?!??!!? resubmit the whole form?
 app.put('/users/info', function (req, res) {
-  console.log('updatesignN reqBody (usR)', req.body);
-  res.send(utils.updateUserInfo(req.body));
+	utils.updateUserInfo(req.body, res.json);
 });
 
 //adding a new user
 app.post('/users/create', function (req, res) {
-  console.log('creating new user!!!');
 	utils.addUser(req.body, res.json);
 });
 

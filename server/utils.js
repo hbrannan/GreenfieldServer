@@ -41,10 +41,11 @@ module.exports = {
     schemas.User.findOne({ where: {captionId: queryBody.captionId} })
       .then(function(User) {
         console.log(User)
-        return User;
+        cb(User);
       })
       .catch(function(err) {
         console.error(err);
+        cb(err)
       })
   },
   authenticateUser: function() {
