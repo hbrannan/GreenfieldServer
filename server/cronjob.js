@@ -23,7 +23,7 @@ var updateDailyPhoto = function () {
     .then(function (lastId) {
         //expect that to be only a number. Is it a string? 
         console.log(lastId)
-        convert lastId to number? 
+       // convert lastId to number? 
         db.findAll({where: ['id > ?', lastId], order: 'id'})
     })
         //query db for all photos w/ id greater than last fsID
