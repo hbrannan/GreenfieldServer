@@ -18,7 +18,10 @@ module.exports = {
         if (!user) {
           const newUser = schemas.User.build(userPost);
           newUser.save()
-          cb({newUserId: user.dataValues.id});
+          .then(function(newUser) {
+            console.log('newUser is:', newUser)
+            cb({newUserId: newUser.dataValues.id});
+          })
         } else {
           console.log('User already in database.');
           cb('User already in database.');
