@@ -82,21 +82,27 @@ module.exports = {
     };
 
     //check if photo is duplicate
-    schemas.Photo.findOne({ where: {url: reqBody.url} }).then(function(photo) {
-      if (!photo) {
-        const newPhoto = schemas.Photo.build(photoPost);
-        newPhoto.save()
-          .then(function(newPhoto){
-            return newPhoto;
-          })
-          .catch(function(err){
-            console.log('Error posting photo: ', err);
-          });  
-      } else {
-        console.log('photo exists already')
-        return 'Photo already in database.';
-      }
-    })
+    schemas.Photo.findOne({ where: {url: reqBody.url} })
+      .then(function(photo) {
+        if (!photo) {
+          const newPhoto = schemas.Photo.build(photoPost);
+          newPhoto.save()
+            .then(function(newPhoto){
+              cb(newPhoto);
+            })
+            .catch(function(err){
+              console.log('Error posting photo: ', err);
+            });  
+        } else {
+          console.log('photo exists already');
+          cb('Photo already in database.');
+        }
+      })
+      .catch(function(err) {
+        console.log('error adding photo: ', err)
+        cb('error adding photo: ', err)
+      })
+    }
   },
   getPhotoCaptions: function  (photoId, cb) {
     /*do this with pure sql: 
