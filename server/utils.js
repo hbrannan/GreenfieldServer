@@ -37,8 +37,8 @@ module.exports = {
     //   first_name: reqBody.first_name
     // }
   },
-  getUserInfo: function (queryBody, cb) {
-    schemas.User.findOne({ where: {id: queryBody.userId} })
+  getUserInfo: function (userId, cb) {
+    schemas.User.findOne({ where: {id: userId} })
       .then(function(User) {
         console.log(User)
         cb(User);
