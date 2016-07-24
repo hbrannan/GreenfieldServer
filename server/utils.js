@@ -12,22 +12,24 @@ module.exports = {
       photo: reqBody.photo
     };
     //if there's already a user, don't create
-    schemas.User.findOne({ where: {fb_username: reqBody.fb_username} }).then(function(user) {
-    if (!user) {
-      const newUser = schemas.User.build(userPost);
-      newUser.save()
-        .then(function(result){
-          console.log('userPostsucceeded!!', result);
+    schemas.User.findOne({ where: {fb_username: reqBody.fb_username} })
+      .then(function(user){
+        if (!user) {
+          const newUser = schemas.User.build(userPost);
+          newUser.save()
           cb({newUserId: result.dataValues.id});
-        })
-        .catch(function(err) {
-          console.log(err);
-        });
-      } else {
-        console.log('User already in database.');
-        cb('User already in database.');
-      }
-    })
+          console.log('userPostsucceeded!!', result);
+        } else {
+          console.log('User already in database.');
+          cb('User already in database.');
+        }
+      })
+      .catch(function(err){
+        console.log("Error adding user", reqBody.fb_username, err);
+        cb("Error adding user", reqBody.fb_username, err);
+      });
+  
+    }
   },
   updateUserInfo: function (reqBody) {
     // const newUserInfo = {
