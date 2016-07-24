@@ -29,7 +29,7 @@ app.use(require('express-promise')());
 
 ///HOMEPAGE
 app.get('/', function (req, res) {
-	res.render('/public/index.html');
+	res.sendFile('index.html', { root: __dirname + '../public' });
 });
 
 ////////////////////////////////////
