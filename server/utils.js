@@ -114,9 +114,8 @@ FROM captions AS caption WHERE caption.photo_id = 1;
   },
   postCaption: function (reqBody, cb) {
     //likes, dislikes
-      // userId: reqBody.userId,
-      // photoId: reqBody.photoId,
     const captionPost = {
+      photoId: reqBody.photoId,
       userId: reqBody.userId,
       caption_top: reqBody.caption_top,
       caption_bottom: reqBody.caption_bottom,
