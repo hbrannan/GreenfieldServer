@@ -28,8 +28,6 @@ module.exports = {
         console.log("Error adding user", reqBody.fb_username, err);
         cb("Error adding user", reqBody.fb_username, err);
       });
-  
-    }
   },
   updateUserInfo: function (reqBody) {
     // const newUserInfo = {
