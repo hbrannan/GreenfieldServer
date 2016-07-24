@@ -21,7 +21,7 @@ var updateDailyPhoto = function () {
         return linesArray[linesArray.length-1];
     })
     .then(function (lastId) {
-        expect that to be only a number. Is it a string? 
+        //expect that to be only a number. Is it a string? 
         console.log(lastId)
         convert lastId to number? 
         db.findAll({where: ['id > ?', lastId], order: 'id'})
