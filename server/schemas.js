@@ -26,7 +26,7 @@ const User = sequelize.define('user', {
     id: {
       type: Sequelize.UUID,
       primaryKey: true
-    }
+    },
 		// login_or_password : {
 		// 	type: Sequelize.STRING
 		// },
