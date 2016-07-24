@@ -19,7 +19,6 @@ module.exports = {
           const newUser = schemas.User.build(userPost);
           newUser.save()
           cb({newUserId: user.dataValues.id});
-          console.log('userPostsucceeded!!', result);
         } else {
           console.log('User already in database.');
           cb('User already in database.');

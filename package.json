@@ -13,6 +13,7 @@
   "devDependencies": {
     "eslint": "^3.1.1",
     "eslint-config-standard": "^5.3.5",
+    "eslint-plugin-es6-recommended": "^0.1.2",
     "eslint-plugin-promise": "^2.0.0",
     "eslint-plugin-standard": "^2.0.0",
     "grunt": "^1.0.1",
