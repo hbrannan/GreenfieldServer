@@ -70,7 +70,7 @@ app.get('/photos', function (req, res) {
 });
 // user adds a photo
 app.post('/photos', function (req, res) {	
-	res.send(utils.postPhoto(req.body));
+	utils.postPhoto(req.body, res.json);
 });
 
 ////////////////////////////////////
