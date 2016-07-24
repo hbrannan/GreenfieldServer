@@ -7,7 +7,7 @@ module.exports = new cron('10 0 0 * * *', function () {
     fs.readFile('./usedPhotosOfTheDay.txt', 'utf8', function(err, data){
         return data.toString().split('\n');
         //this should return an array of lines
-    });
+    })
     .then(function(linesArray){
         //get last one
         return linesArray[linesArray.length-1];
@@ -38,4 +38,4 @@ module.exports = new cron('10 0 0 * * *', function () {
         });
     });
 
-});
+}, null, false);
