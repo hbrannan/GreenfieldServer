@@ -34,7 +34,7 @@ app.get('/', function (req, res) {
 app.get('/users/info', function (req, res) {
 	console.log('bichez b signing in');
   console.log('signN reqBody shoudl B singL usR', req.body);
-  res.send(utils.getUserInfo(queryBody));
+  res.send(utils.getUserInfo(req.query));
 });
 
 //updating sign-in info MVP?!??!!? resubmit the whole form?
