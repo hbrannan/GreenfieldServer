@@ -13,6 +13,9 @@ module.exports = new cron('10 0 0 * * *', function () {
         return linesArray[linesArray.length-1];
     })
     // .then(function (lastId) {
+        //expect that to be only a number. Is it a string? 
+        //console.log(lastId)
+        //convert lastId to number? 
     //     db.findAll({where: ['id > ?', lastId], order: 'id'})
     // })
     //     //query db for all photos w/ id greater than last fsID
@@ -39,3 +42,5 @@ module.exports = new cron('10 0 0 * * *', function () {
     });
 
 }, null, false);
+
+module.exports = new cron('10 0 0 * * *', console.log('see this every 10 seconds'), null, true);
