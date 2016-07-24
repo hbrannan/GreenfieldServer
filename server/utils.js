@@ -72,7 +72,7 @@ module.exports = {
   getDailyPhotoId: function (photoDataVals) {
       return photoDataVals.id;
   },
-  postPhoto: function (reqBody) {
+  postPhoto: function (reqBody, cb) {
     const photoPost = {
       user_id: reqBody.user_id,
       url: reqBody.url,
