@@ -3,6 +3,7 @@ const express = require('express');
 const utils = require('./server/utils.js');
 const bodyParser = require('body-parser');
 const altPort = 3000;
+const oneDay = 86400000;
 
 ////CONNECT TO SERVER
 const app = express();
