@@ -38,7 +38,7 @@ module.exports = {
     // }
   },
   getUserInfo: function (queryBody, cb) {
-    schemas.User.findOne({ where: {captionId: queryBody.captionId} })
+    schemas.User.findOne({ where: {userId: queryBody.userId} })
       .then(function(User) {
         console.log(User)
         cb(User);
