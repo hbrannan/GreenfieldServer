@@ -11,7 +11,7 @@ app.listen(process.env.PORT || altPort, function () {
 });
 
 
-app.use(express.static(__dirname + '/../dummy.html'));
+app.use(express.static(__dirname + '/public'));
 
 
 /////////MIDDLEWARE//////////
@@ -24,7 +24,7 @@ app.use(require('express-promise')());
 
 ///HOMEPAGE
 app.get('/', function (req, res) {
-	res.send('Heyyy bitchez lololol 4 life!');
+	res.send('/public/index.html');
 });
 
 ////////////////////////////////////
