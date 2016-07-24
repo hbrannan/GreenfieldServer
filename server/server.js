@@ -32,6 +32,7 @@ app.get('/', function (req, res) {
 
 //retrieving sign in info
 app.get('/users/info', function (req, res) {
+	console.log("req is: ",req)
   utils.getUserInfo(req.query, res.json);
 });
 
