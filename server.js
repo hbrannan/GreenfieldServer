@@ -70,6 +70,7 @@ app.get('/photos', function (req, res) {
 });
 // user adds a photo
 app.post('/photos', function (req, res) {	
+	console.log('req.body is', req.body)
 	utils.postPhoto(req.body, res.json);
 });
 
