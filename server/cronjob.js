@@ -1,6 +1,6 @@
 const cron = require('cron').CronJob;
-const db = require('./server/schemas.js');
-const utils = require('./server/utils.js');
+const db = require('./schemas.js');
+const utils = require('./utils.js');
 const fs = require('fs');
 
 module.exports = new cron('10 0 0 * * *', function () {
