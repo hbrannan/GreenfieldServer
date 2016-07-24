@@ -12,6 +12,11 @@ app.listen(process.env.PORT || altPort, function () {
 
 
 app.use(express.static(__dirname + '/public'));
+app.use('/css', express.static(__dirname + '/public/css'));
+app.use('/font-awesome', express.static(__dirname + '/public/font-awesome'));
+app.use('/fonts', express.static(__dirname + '/public/fonts'));
+app.use('/img', express.static(__dirname + '/public/img'));
+app.use('/js', express.static(__dirname + '/public/js'));
 
 
 /////////MIDDLEWARE//////////
@@ -32,7 +37,6 @@ app.get('/', function (req, res) {
 
 //retrieving sign in info
 app.get('/users/info', function (req, res) {
-	console.log("req is: ",req)
   utils.getUserInfo(req.query.id, res.json);
 });
 

@@ -2,7 +2,6 @@ const schemas = require('./schemas.js');
 
 module.exports = {
   addUser: function (reqBody, cb) {
-    console.log('userReq',reqBody);
     const userPost = {
       first_name: reqBody.first_name,
       last_name: reqBody.last_name,
