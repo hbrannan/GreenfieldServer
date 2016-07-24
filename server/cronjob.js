@@ -48,6 +48,7 @@ var updateDailyPhoto = function () {
           console.log('The "data to append" was appended to file!');
         });
     });
+};
 
 setInterval(updateDailyPhoto, 30000);
 
