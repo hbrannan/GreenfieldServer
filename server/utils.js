@@ -102,7 +102,6 @@ module.exports = {
         console.log('error adding photo: ', err)
         cb('error adding photo: ', err)
       })
-    }
   },
   getPhotoCaptions: function  (photoId, cb) {
     /*do this with pure sql: 
