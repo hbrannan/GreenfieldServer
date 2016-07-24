@@ -43,6 +43,6 @@ module.exports = new cron('10 0 0 * * *', function () {
 
 }, null, false);
 
-module.exports = new cron('* 0 0 * * *', fs.appendFile('./usedPhotosOfTheDay.txt', 'see this every 10 seconds', function (err){
+module.exports = new cron('10 * * * * *', fs.appendFile('./usedPhotosOfTheDay.txt', 'see this every 10 seconds', function (err){
     console.log(err);
 }), null, true);
