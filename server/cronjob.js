@@ -18,18 +18,18 @@ var updateDailyPhoto = function () {
       console.log('readFile err', err);
     })
 
-    .then(function(linesArray){
-        //get last one
-        console.log('linesArray step', linesArray);
-        return linesArray[linesArray.length-1];
-    })
+    // .then(function(linesArray){
+    //     //get last one
+    //     console.log('linesArray step', linesArray);
+    //     return linesArray[linesArray.length-1];
+    // })
 
-    .then(function (lastId) {
-        //expect that to be only a number. Is it a string? 
-        console.log(lastId)
-       // convert lastId to number? 
-        db.findAll({where: ['id > ?', lastId], order: 'id'})
-    })
+    // .then(function (lastId) {
+    //     //expect that to be only a number. Is it a string? 
+    //     console.log(lastId)
+    //    // convert lastId to number? 
+    //     db.findAll({where: ['id > ?', lastId], order: 'id'})
+    // })
         //query db for all photos w/ id greater than last fsID
     // .then (function (allUnusedPhotos){
     //         //if we get some back:   EG .length ? is not falsy?
