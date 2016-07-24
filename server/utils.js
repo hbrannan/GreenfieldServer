@@ -1,4 +1,5 @@
 const schemas = require('./schemas.js');
+const cronjob = require('./cronjob.js');
 
 module.exports = {
   addUser: function (reqBody, cb) {
@@ -61,6 +62,7 @@ module.exports = {
   },
   getDailyPhoto: function (cb) {
     //currently: placeholder photo!! 
+    // instad of imgur, put where id = id of the day!
     schemas.Photo.findOne({ where: { source: "imgur" }})
     .then(function(photo) {
        cb(photo.dataValues);
