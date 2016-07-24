@@ -1,6 +1,7 @@
 const cron = require('cron').CronJob;
 const db = require('./server/schemas.js');
 const utils = require('./server/utils.js');
+const fs = require('fs');
 
 module.exports = new cron('0 0 0 * * *', function () {
     // var allPhotos = utils.getAllPhotos(); //{{}}
