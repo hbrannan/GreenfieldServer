@@ -14,10 +14,11 @@ module.exports = {
     //if there's already a user, don't create
     schemas.User.findOne({ where: {fb_username: reqBody.fb_username} })
       .then(function(user){
+        console.log('new user is', user)
         if (!user) {
           const newUser = schemas.User.build(userPost);
           newUser.save()
-          cb({newUserId: result.dataValues.id});
+          cb({newUserId: user.dataValues.id});
           console.log('userPostsucceeded!!', result);
         } else {
           console.log('User already in database.');
