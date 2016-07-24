@@ -47,16 +47,16 @@ module.exports = {
         cb(err)
       })
   },
-  authenticateUser: function() {
+  authenticateUser: function () {
     schemas.User.findOne({ where: { userId }})
   },
-  getAllPhotos: function  () {
+  getAllPhotos: function (cb) {
     schemas.Photo.findAll({})
       .then(function (results) {
-        return results;
+        cb(results);
       })
       .catch(function (err) {
-        console.log('Sweetie, youll get there, keep trying, k?', err);
+        cb('Error getting all photos!', err)
       });
   },
   getDailyPhoto: function (cb) {
@@ -73,6 +73,7 @@ module.exports = {
       return photoDataVals.id;
   },
   postPhoto: function (reqBody, cb) {
+
     const photoPost = {
       user_id: reqBody.user_id,
       url: reqBody.url,
