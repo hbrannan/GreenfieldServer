@@ -1,4 +1,4 @@
-const server = require('./server.js'); //don't need this
+const server = require('../server.js'); //don't need this
 const Sequelize = require('sequelize');
 
 ///(why) do we need this? 

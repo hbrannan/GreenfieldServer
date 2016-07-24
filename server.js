@@ -1,6 +1,6 @@
 ///LIST DEPENDENCIES
 const express = require('express');
-const utils = require('./utils.js');
+const utils = require('./server/utils.js');
 const bodyParser = require('body-parser');
 const altPort = 3000;
 
