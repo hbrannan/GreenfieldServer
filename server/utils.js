@@ -139,7 +139,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
         cb(err);
       });
   },
-  upVoteCaption: function (captionId) {
+  upVoteCaption: function (captionId, cb) {
     schemas.Caption.findOne({ where: {id: captionId} })
       .then(function (caption) {
         const oldVal = caption.likes;
@@ -147,13 +147,14 @@ FROM captions AS caption WHERE caption.photo_id = 1;
           likes: oldVal + 1
         });
         console.log('successfully upvoted!')
-        return oldVal + 1;
+        cb(oldVal + 1);
       })
       .catch(function(err){
         console.log('Error upvoting caption: ', err);
+        cb(err)
       });
   }, 
-  downVoteCaption: function (captionId) {
+  downVoteCaption: function (captionId, cb) {
     schemas.Caption.findOne({ where: {id: captionId} })
       .then(function (caption) {
         const oldVal = caption.dislikes;
@@ -161,10 +162,11 @@ FROM captions AS caption WHERE caption.photo_id = 1;
           dislikes: oldVal + 1
         });
         console.log('successfully downvoted!')
-        return oldVal + 1;
+        cb(oldVal + 1);
       })
       .catch(function(err){
         console.log('Error upvoting caption: ', err);
+        cb(err)
       });
   },
   // returns the likes, dislikes, and total votes of a caption

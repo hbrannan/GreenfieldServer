@@ -104,18 +104,18 @@ app.post('/captions/giveusthisday', function (req, res) {
 
 //endpoint for upvoting captions: 
 app.put('/captions/upvote', function (req, res) {
-	res.send(utils.upVoteCaption(req.body.captionId));
+	utils.upVoteCaption(req.body.captionId, res.json);
 });
 
 //endpoint for downvoting captions
 app.put('/captions/downvote', function (req, res) {
-	res.send(utils.downVoteCaption(Number(req.body.captionId)));
+	utils.downVoteCaption(req.body.captionId, res.json);
 });
 
 
 //endpoint for getting likes, dislikes, total votes
 app.get('/captions/getvotes', function (req, res) {
-	utils.displayCaptionVotes(req.query.captionId, res.send);
+	utils.displayCaptionVotes(req.query.captionId, res.json);
 });
 
 
