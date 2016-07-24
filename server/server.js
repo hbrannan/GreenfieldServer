@@ -24,7 +24,7 @@ app.use(require('express-promise')());
 
 ///HOMEPAGE
 app.get('/', function (req, res) {
-	res.send('/public/index.html');
+	res.render('/public/index.html');
 });
 
 ////////////////////////////////////
