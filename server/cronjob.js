@@ -20,7 +20,7 @@ var updateDailyPhoto = function () {
      .then(function(lastId){
         //do a db fetch
         console.log('dem boyz sux, amiright', db.Photo.findOne({where: ['id > ?', lastId], 
-        order:[[sequelize.fn('min', sequelize.col('id'))]]
+        order:[[db.sequelize.fn('min', db.sequelize.col('id'))]]
         }));
      })
      .catch(function(err){
