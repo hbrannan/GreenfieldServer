@@ -26,7 +26,7 @@ var updateDailyPhoto = function () {
             order:[[db.sequelize.fn('min', db.sequelize.col('id'))]],
             group: 'id'
         });
-        if (nextHighest){
+        if (nextHighest.id){
             return nextHighest;
         } else {
             //return lowest id
@@ -35,9 +35,9 @@ var updateDailyPhoto = function () {
      })
      .then(function(nextHighestPhotoId){
         console.log('yaaaassss!Ham!', nextHighestPhotoId);
-        console.log('tryto xcss dataValues', nextHighestPhotoId.dataValues);
-        console.log('tryto xcss dataValues', nextHighestPhotoId.id);
-        console.log('enumerable keys', Object.keys(nextHighestPhotoId));
+        // console.log('tryto xcss dataValues', nextHighestPhotoId.dataValues);
+        // console.log('tryto xcss dataValues', nextHighestPhotoId.id);
+        // console.log('enumerable keys', Object.keys(nextHighestPhotoId));
      })
      .catch(function(err){
         console.log(err);
