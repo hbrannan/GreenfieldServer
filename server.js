@@ -50,7 +50,7 @@ app.put('/users/info', function (req, res) {
 
 //adding a new user
 app.post('/users/create', function (req, res) {
-	res.statusCode(200);
+	res.statusCode= 200;
 	utils.addUser(req.body, res.json);
 });
 
