@@ -30,11 +30,6 @@ module.exports = {
         cb("Error adding user", reqBody.fb_username, err);
       });
   },
-  updateUserInfo: function (reqBody) {
-    // const newUserInfo = {
-    //   first_name: reqBody.first_name
-    // }
-  },
   getUserInfo: function (userId, cb) {
     schemas.User.findOne({ where: {id: userId} })
       .then(function(User) {
@@ -59,8 +54,6 @@ module.exports = {
       });
   },
   getDailyPhoto: function (cb) {
-    //currently: placeholder photo!! 
-    // instad of imgur, put where id = id of the day!
     //RIGHT NOW, IS HARDCODED!!!
     schemas.Photo.findOne({ where: { id: 1 }})
     .then(function(photo) {
@@ -69,11 +62,6 @@ module.exports = {
       console.log('Error retrieving daily photo: ', err);
       cb(err);
     });
-  },
-  getDailyPhotoId: function (photoDataVals) {
-     var dailyPhoto = getDailyPhoto();
-     console.log(dailyPhoto);
-      return dailyPhoto.id;
   },
   postPhoto: function (reqBody, cb) {
 
@@ -121,13 +109,11 @@ FROM captions AS caption WHERE caption.photo_id = 1;
         cb(err);
       });
   },
-  postDailyCaption: function (reqBody, cb) {
-
-    //get the Daily Id
-    var dailyId = getDailyPhotoId;
+  postDailyCaption: function (photoId, reqBody, cb) {
+    photoId = photoId || 1;
 
     const captionPost = {
-      photoId: 1,
+      photoId: photoId,
       userId: reqBody.userId,
       caption_top: reqBody.caption_top,
       caption_bottom: reqBody.caption_bottom,

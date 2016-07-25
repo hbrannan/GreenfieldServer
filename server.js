@@ -83,7 +83,6 @@ app.get('/captions', function(req, res) {
 	utils.getAllCaptions(res.send);
 });
 
-
 //get all captions for daily photo
 app.get('/captions/giveusthisday', function (req, res) {
 	// get the id of daily photo.
@@ -102,7 +101,13 @@ app.get('/captions/giveusthisday', function (req, res) {
 
 //user posts caption on a photo
 app.post('/captions/giveusthisday', function (req, res) {
-	utils.postDailyCaption(req.body, res.json);
+	var dailyPhoto = utils.getDailyPhoto(function (val){
+		return val;
+	});
+	 //then get the id.
+	var dailyPhotoId = dailyPhoto.id || 1;
+	console.og(dailyPhotoId);
+	utils.postDailyCaption(dailyPhotoId, req.body, res.json);
 });
 
 //endpoint for upvoting captions: 
