@@ -19,7 +19,7 @@ var updateDailyPhoto = function () {
      })
      .then(function(lastId){
         //do a db fetch
-        console.log(db.findAll({where: {id: lastId}}));
+        console.log(db.sequelize.findAll({where: {id: lastId}}));
      })
      .catch(function(err){
         console.log(err);
