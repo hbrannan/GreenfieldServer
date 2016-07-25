@@ -22,7 +22,8 @@ var updateDailyPhoto = function () {
         // console.log('dem boyz sux, amiright', db.Photo.findAll({where:['id > ?', lastId]}));
         return db.Photo.findOne({
             where:['id > ?', lastId],
-            order:[[db.sequelize.fn('min', db.sequelize.col('id'))]]
+            order:[[db.sequelize.fn('min', db.sequelize.col('id'))]],
+            group: 'id'
         });
      })
      .then(function(nextHighestPhotoId){
@@ -47,12 +48,6 @@ setInterval(updateDailyPhoto, 30000);
      //    });
      //    return sortedArr[0];
      // })
-    // .then(function (lastId) {
-    //     //expect that to be only a number. Is it a string? 
-    //     console.log(lastId)
-    //    // convert lastId to number? 
-    //     db.findAll({where: ['id > ?', lastId], order: 'id'})
-    // })
         //query db for all photos w/ id greater than last fsID
     // .then (function (allUnusedPhotos){
     //         //if we get some back:   EG .length ? is not falsy?
