@@ -49,7 +49,6 @@ var updateDailyPhoto = function () {
           console.log(GLOBAL.dailyPhotoId +' was appended to file!');
         });
      })
-     .then(function)
      .catch(function(err){
         console.log(err);
      })
