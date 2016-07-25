@@ -179,7 +179,11 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       })
   },
   getAllCaptions: function(cb) {
-    schemas.Caption.findAll({})
+    schemas.Caption.findAll({
+      include: [{
+        attributes:['caption_top', 'caption_bottom', 'likes', 'dislikes', 'font', 'id', 'photoId', 'userId']
+      }]
+    })
       .then(function(results) {
         console.log('WE DID IT!!!!' + results)
         cb(results)
