@@ -19,15 +19,23 @@ var updateDailyPhoto = function () {
      })
      .then(function(lastId){
         //do a db fetch
-        // console.log('dem boyz sux, amiright', db.Photo.findAll({where:['id > ?', lastId]}));
-        return db.Photo.findOne({
+        //if exists, pass it on
+        //else, pass on the fIrST 
+        var nextHighest = db.Photo.findOne({
             where:['id > ?', lastId],
             order:[[db.sequelize.fn('min', db.sequelize.col('id'))]],
             group: 'id'
         });
+        if (nextHighest){
+            return nextHighest.dataValues.id;
+        } else {
+            //return lowest id
+            return '1';
+        }
      })
      .then(function(nextHighestPhotoId){
         console.log('yaaaassss!Ham!', nextHighestPhotoId);
+        //
      })
      .catch(function(err){
         console.log(err);
@@ -36,6 +44,7 @@ var updateDailyPhoto = function () {
 
 setInterval(updateDailyPhoto, 30000);
 
+        // console.log('dem boyz sux, amiright', db.Photo.findAll({where:['id > ?', lastId]}));
 // db.Photo.findOne({where: ['id > ?', lastId], 
 //         order:[[db.Sequelize.fn('min', db.Sequelize.col('id'))]]
 // })
