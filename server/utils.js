@@ -110,7 +110,6 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   postDailyCaption: function (photoId, reqBody, cb) {
-    photoId = photoId || 1;
 
     const captionPost = {
       photoId: photoId,
