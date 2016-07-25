@@ -42,7 +42,7 @@ var updateDailyPhoto = function () {
         //set the global var to this id
         GLOBAL.dailyPhotoId = nextHighestPhotoId;
         //AND ALSO APPEND the file
-        fs.appendFile(__dirname +'usedPhotosOfTheDay.txt', GLOBAL.dailyPhotoId, function (err){
+        fs.appendFile(__dirname +'/usedPhotosOfTheDay.txt', GLOBAL.dailyPhotoId, function (err){
           if (err) {
             throw err;
           }
