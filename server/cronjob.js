@@ -10,8 +10,12 @@ const promisifiedRead = Promise.promisify(fs.readFile);
 var updateDailyPhoto = function () {
     return promisifiedRead(__dirname + '/usedPhotosOfTheDay.txt', 'utf8')
      .then(function (fileContents) {
-        console.log(fileContents.split('\n'));
+        console.log('step 1 ', fileContents.split('\n'));
         return fileContents.split('\n');
+     })
+     .then(function(arrayofContents){
+        console.log('step 2 ', arrayofContents[arrayofContents.length-1]);
+        return arrayofContents[arrayofContents.length-1];
      })
      .catch(function(err){
         console.log(err);
