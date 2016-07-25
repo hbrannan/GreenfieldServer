@@ -102,6 +102,7 @@ sequelize.sync();
 module.exports = {
 	User: User,
 	Photo: Photo,
-	Caption: Caption
+	Caption: Caption,
+	sequelize: sequelize
 	// Hashtag: Hashtag
 };
