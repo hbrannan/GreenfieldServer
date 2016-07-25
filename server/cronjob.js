@@ -25,6 +25,7 @@ var updateDailyPhoto = function () {
         });
      })
      .then(function(allUnusedPhotos){
+        console.log(allUnusedPhotos);
         var arrayOfPhotos = allUnusedPhotos.dataValues;
         var sortedArr = arrayOfPhotos.sort(function(a,b){
             return a.id - b.id;
