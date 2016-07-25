@@ -1,5 +1,6 @@
 const schemas = require('./schemas.js');
 const cronjob = require('./cronjob.js');
+window.dailyPhotoId = 1;
 
 module.exports = {
   addUser: function (reqBody, cb) {
@@ -53,10 +54,10 @@ module.exports = {
         cb('Error getting all photos!', err)
       });
   },
-  getDailyPhoto: function (photoId, cb) {
-    photoId = photoId || 1;
+  getDailyPhoto: function (cb) {
+
     //RIGHT NOW, IS HARDCODED!!! need to access the dailyPhotoId global variable
-    schemas.Photo.findOne({ where: { id: photoId }})
+    schemas.Photo.findOne({ where: { id: dailyPhotoId }})
     .then(function(photo) {
        cb(photo.dataValues);
     }).catch( function(err) {
@@ -97,10 +98,7 @@ module.exports = {
       })
   },
   getPhotoCaptions: function  (photoId, cb) {
-    /*do this with pure sql: 
-SELECT id, likes, dislikes, caption_top, caption_bottom, user_id, photo_id 
-FROM captions AS caption WHERE caption.photo_id = 1;
-    */
+
     schemas.Caption.findAll({ where: {photoId: photoId}})
       .then(function (captions) {
         cb(captions);

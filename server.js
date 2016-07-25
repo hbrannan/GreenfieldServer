@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const altPort = 3000;
 const cronJob = require('./server/cronjob.js');
 
+
 ////CONNECT TO SERVER
 const app = express();
 app.listen(process.env.PORT || altPort, function () {
@@ -64,7 +65,7 @@ app.post('/users/authenticated', function(req, res) {
 
 //get the daily photo
 app.get('/photos/giveusthisday', function(req, res) {
-	utils.getDailyPhoto(1, res.send);
+	utils.getDailyPhoto(res.send);
 });
 //get all of the photos
 app.get('/photos', function (req, res) {
@@ -86,7 +87,7 @@ app.get('/captions', function(req, res) {
 //get all captions for daily photo
 app.get('/captions/giveusthisday', function (req, res) {
 	// get the id of daily photo.
-	return utils.getDailyPhoto(1, function (photoOrErr){
+	return utils.getDailyPhoto(function (photoOrErr){
 		if (photoOrErr instanceof Error){
 			console.log('Error retrieving daily photo: ', err);
 		} else {
@@ -102,7 +103,7 @@ app.get('/captions/giveusthisday', function (req, res) {
 //user posts caption on a photo
 app.post('/captions/giveusthisday', function (req, res) {
 	//HARDCODED
-	utils.getDailyPhoto(1, function (photoOrErr){
+	utils.getDailyPhoto(function (photoOrErr){
 		//utilize this cb to post 
 		if (photoOrErr instanceof Error){
 			console.log('Error retrieving daily photo: ', err);
