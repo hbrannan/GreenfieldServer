@@ -18,7 +18,7 @@ var updateDailyPhoto = function () {
      })
 };
 
-// setInterval(updateDailyPhoto, 30000);
+setInterval(updateDailyPhoto, 30000);
 //     console.log('yessnHaMM at it agin');
 
 //     fs.readFile(__dirname + '/usedPhotosOfTheDay.txt', 'utf8', function(err, fileContents){
