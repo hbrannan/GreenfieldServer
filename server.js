@@ -58,6 +58,7 @@ app.post('/users/authenticated', function(req, res) {
 	console.log('user is being authenticated');
 });
 
+
 ////////////////////////////////////
 //////////////////PHOTOS SECTION
 
@@ -91,6 +92,7 @@ app.get('/captions/giveusthisday', function (req, res) {
 			console.log('Error retrieving daily photo: ', err);
 		} else {
 		//then: get all captions of that photo!
+		console.log('photoORErr', photoOrErr.id);
 			return utils.getPhotoCaptions(photoOrErr.id, res.send);
 		}
 	});
