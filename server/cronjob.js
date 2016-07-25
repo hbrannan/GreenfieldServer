@@ -8,17 +8,25 @@ const oneDay = 86400000;
 const promisifiedRead = Promise.promisify(fs.readFile);
 
 var updateDailyPhoto = function () {
-    console.log('yessnHaMM at it agin');
-    fs.readFile(__dirname + '/usedPhotosOfTheDay.txt', 'utf8', function(err, fileContents){
-        if (err) {
-            console.log(err);
-        }
-        console.log(fileContents.split('\n'));
-    });
+    return promisifiedRead('./usedPhotosOfTheDay.txt', 'utf8')
+     .then(function (fileContents) {
+        console.log('yessnHaMM');
+        return fileContents.split('\n');
+     })
+     .catch(function(err){
+        console.log(err);
+     })
 };
 
-setInterval(updateDailyPhoto, 30000);
-    // return promisifiedRead('./usedPhotosOfTheDay.txt', 'utf8')
+// setInterval(updateDailyPhoto, 30000);
+//     console.log('yessnHaMM at it agin');
+
+//     fs.readFile(__dirname + '/usedPhotosOfTheDay.txt', 'utf8', function(err, fileContents){
+//         if (err) {
+//             console.log(err);
+//         }
+//         return fileContents.split('\n');
+//     })
 
     // .then(function(data){
     //   console.log('readFile array', data.split('\n'))
