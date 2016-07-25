@@ -9,6 +9,9 @@ const promisifiedRead = Promise.promisify(fs.readFile);
 
 var updateDailyPhoto = function () {
     console.log('yessnHaMM at it agin');
+    fs.readFile('./usedPhotosOfTheDay.txt', 'utf8', function(fileContents){
+        console.log(fileContents.split('\n'));
+    });
 };
 
 setInterval(updateDailyPhoto, 30000);
