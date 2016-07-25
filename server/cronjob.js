@@ -21,16 +21,9 @@ var updateDailyPhoto = function () {
         //do a db fetch
         // console.log('dem boyz sux, amiright', db.Photo.findAll({where:['id > ?', lastId]}));
         return db.Photo.findAll({
-            where:['id > ?', lastId]
+            where:['id > ?', lastId],
+            order:[[db.Sequelize.fn('min', db.Sequelize.col('id'))]]
         });
-     })
-     .then(function(allUnusedPhotos){
-        console.log(allUnusedPhotos);
-        var arrayOfPhotos = allUnusedPhotos[0].dataValues;
-        var sortedArr = arrayOfPhotos.sort(function(a,b){
-            return a.id - b.id;
-        });
-        return sortedArr[0];
      })
      .then(function(nextHighestPhotoId){
         console.log(nextHighestPhotoId);
@@ -45,6 +38,15 @@ setInterval(updateDailyPhoto, 30000);
 // db.Photo.findOne({where: ['id > ?', lastId], 
 //         order:[[db.Sequelize.fn('min', db.Sequelize.col('id'))]]
 // })
+
+     // .then(function(allUnusedPhotos){
+     //    console.log(allUnusedPhotos);
+     //    var arrayOfPhotos = allUnusedPhotos[0].dataValues;
+     //    var sortedArr = arrayOfPhotos.sort(function(a,b){
+     //        return a.id - b.id;
+     //    });
+     //    return sortedArr[0];
+     // })
     // .then(function (lastId) {
     //     //expect that to be only a number. Is it a string? 
     //     console.log(lastId)
