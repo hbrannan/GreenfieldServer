@@ -53,9 +53,10 @@ module.exports = {
         cb('Error getting all photos!', err)
       });
   },
-  getDailyPhoto: function (cb) {
-    //RIGHT NOW, IS HARDCODED!!!
-    schemas.Photo.findOne({ where: { id: 1 }})
+  getDailyPhoto: function (photoId, cb) {
+    photoId = photoId || 1;
+    //RIGHT NOW, IS HARDCODED!!! need to access the dailyPhotoId global variable
+    schemas.Photo.findOne({ where: { id: photoId }})
     .then(function(photo) {
        cb(photo.dataValues);
     }).catch( function(err) {
