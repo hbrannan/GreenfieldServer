@@ -46,7 +46,7 @@ module.exports = {
         cb(err)
       })
   },
-  authenticateUser: function () {
+  authenticateUser: function (user) {
     schemas.User.findOne({ where: { userId }})
   },
   getAllPhotos: function (cb) {
@@ -61,7 +61,8 @@ module.exports = {
   getDailyPhoto: function (cb) {
     //currently: placeholder photo!! 
     // instad of imgur, put where id = id of the day!
-    schemas.Photo.findOne({ where: { source: "imgur" }})
+    //RIGHT NOW, IS HARDCODED!!!
+    schemas.Photo.findOne({ where: { id: 1 }})
     .then(function(photo) {
        cb(photo.dataValues);
     }).catch( function(err) {
@@ -70,7 +71,9 @@ module.exports = {
     });
   },
   getDailyPhotoId: function (photoDataVals) {
-      return photoDataVals.id;
+     var dailyPhoto = getDailyPhoto();
+     console.log(dailyPhoto);
+      return dailyPhoto.id;
   },
   postPhoto: function (reqBody, cb) {
 
@@ -119,7 +122,10 @@ FROM captions AS caption WHERE caption.photo_id = 1;
       });
   },
   postCaption: function (reqBody, cb) {
-    //likes, dislikes
+
+    //get the Daily Id
+    var dailyId = getDailyPhotoId;
+
     const captionPost = {
       photoId: reqBody.photoId,
       userId: reqBody.userId,
