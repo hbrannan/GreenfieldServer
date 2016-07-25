@@ -24,7 +24,7 @@ module.exports = {
           })
         } else {
           console.log('User already in database.');
-          cb('User already in database.');
+          cb('User already in database.', 'User id is ' + user.id);
         }
       })
       .catch(function(err){
