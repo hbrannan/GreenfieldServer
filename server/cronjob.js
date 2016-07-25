@@ -13,7 +13,7 @@ var updateDailyPhoto = function () {
         if (err) {
             console.log(err);
         }
-        console.log(fileContents.split(','));
+        console.log(fileContents.split('\n'));
     });
 };
 
