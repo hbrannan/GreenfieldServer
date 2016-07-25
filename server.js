@@ -86,7 +86,7 @@ app.get('/captions', function(req, res) {
 //get all captions for daily photo
 app.get('/captions/giveusthisday', function (req, res) {
 	// get the id of daily photo.
-	return utils.getDailyPhoto(function (photoOrErr){
+	return utils.getDailyPhoto(1, function (photoOrErr){
 		if (photoOrErr instanceof Error){
 			console.log('Error retrieving daily photo: ', err);
 		} else {
