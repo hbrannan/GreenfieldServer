@@ -26,18 +26,22 @@ var updateDailyPhoto = function () {
             order:[[db.sequelize.fn('min', db.sequelize.col('id'))]],
             group: 'id'
         });
-        if (nextHighest.id){
+        if (nextHighest){
             return nextHighest;
         } else {
             //return lowest id
             return '1';
         }
      })
-     .then(function(nextHighestPhotoId){
-        console.log('yaaaassss!Ham!', nextHighestPhotoId);
+     .then(function(nextHighestPhoto){
+        console.log('yaaaassss!Ham!', nextHighestPhoto);
+        return nextHighestPhoto.id
         // console.log('tryto xcss dataValues', nextHighestPhotoId.dataValues);
         // console.log('tryto xcss dataValues', nextHighestPhotoId.id);
         // console.log('enumerable keys', Object.keys(nextHighestPhotoId));
+     })
+     .then(function(nextHighestPhotoId){
+        console.log(nextHighestPhotoId);
      })
      .catch(function(err){
         console.log(err);
