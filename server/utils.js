@@ -1,6 +1,6 @@
 const schemas = require('./schemas.js');
 const cronjob = require('./cronjob.js');
-window.dailyPhotoId = 1;
+GLOBAL.dailyPhotoId = 1;
 
 module.exports = {
   addUser: function (reqBody, cb) {
@@ -55,7 +55,6 @@ module.exports = {
       });
   },
   getDailyPhoto: function (cb) {
-
     //RIGHT NOW, IS HARDCODED!!! need to access the dailyPhotoId global variable
     schemas.Photo.findOne({ where: { id: dailyPhotoId }})
     .then(function(photo) {
