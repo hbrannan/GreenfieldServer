@@ -121,7 +121,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
         cb(err);
       });
   },
-  postCaption: function (reqBody, cb) {
+  postDailyCaption: function (reqBody, cb) {
 
     //get the Daily Id
     var dailyId = getDailyPhotoId;
