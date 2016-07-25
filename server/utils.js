@@ -99,7 +99,7 @@ module.exports = {
   },
   getPhotoCaptions: function  (photoId, cb) {
 
-    schemas.Caption.findAll({ where: {photoId: photoId}})
+    schemas.Caption.findAll({ where: {photoId: dailyPhotoId}})
       .then(function (captions) {
         cb(captions);
       })
@@ -109,9 +109,9 @@ module.exports = {
       });
   },
   postDailyCaption: function (photoId, reqBody, cb) {
-
+    console.log('charliez req body', reqBody);
     const captionPost = {
-      photoId: photoId,
+      photoId: dailyPhotoId,
       userId: reqBody.userId,
       caption_top: reqBody.caption_top,
       caption_bottom: reqBody.caption_bottom,

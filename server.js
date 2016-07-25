@@ -103,6 +103,7 @@ app.get('/captions/giveusthisday', function (req, res) {
 //user posts caption on a photo
 app.post('/captions/giveusthisday', function (req, res) {
 	//HARDCODED
+	console.log('charlie sayz', req);
 	utils.getDailyPhoto(function (photoOrErr){
 		//utilize this cb to post 
 		if (photoOrErr instanceof Error){
