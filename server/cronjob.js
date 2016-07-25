@@ -8,7 +8,10 @@ const oneDay = 86400000;
 const promisifiedRead = Promise.promisify(fs.readFile);
 
 var updateDailyPhoto = function () {
+    console.log('yessnHaMM at it agin');
+};
 
+setInterval(updateDailyPhoto, 30000);
     // return promisifiedRead('./usedPhotosOfTheDay.txt', 'utf8')
 
     // .then(function(data){
@@ -53,9 +56,7 @@ var updateDailyPhoto = function () {
     //       console.log('The "data to append" was appended to file!');
     //     });
     // });
-};
 
-setInterval(updateDailyPhoto, 30000);
 
 // module.exports = new cron('10 * * * * *', fs.appendFile('./usedPhotosOfTheDay.txt', 'see this every 10 seconds', function (err){
 //     console.log(err);
