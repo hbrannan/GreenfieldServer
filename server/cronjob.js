@@ -20,7 +20,9 @@ var updateDailyPhoto = function () {
      .then(function(lastId){
         //do a db fetch
         // console.log('dem boyz sux, amiright', db.Photo.findAll({where:['id > ?', lastId]}));
-        return db.Photo.findAll({where:['id > ?', lastId]});
+        return db.Photo.findAll({
+            where:['id > ?', lastId]
+        });
      })
      .then(function(allUnusedPhotos){
         var arrayOfPhotos = allUnusedPhotos.dataValues;
