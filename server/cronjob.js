@@ -10,12 +10,16 @@ const promisifiedRead = Promise.promisify(fs.readFile);
 var updateDailyPhoto = function () {
     return promisifiedRead(__dirname + '/usedPhotosOfTheDay.txt', 'utf8')
      .then(function (fileContents) {
-        console.log('step 1 ', fileContents.split('\n'));
+        //read the contents of the file
         return fileContents.split('\n');
      })
      .then(function(arrayofContents){
-        console.log('step 2 ', arrayofContents[arrayofContents.length-1]);
+        //get the last el
         return arrayofContents[arrayofContents.length-1];
+     })
+     .then(function(lastId){
+        //do a db fetch
+        console.log(db.findAll({where: {id: lastId}}));
      })
      .catch(function(err){
         console.log(err);
@@ -23,27 +27,6 @@ var updateDailyPhoto = function () {
 };
 
 setInterval(updateDailyPhoto, 30000);
-//     console.log('yessnHaMM at it agin');
-
-//     fs.readFile(__dirname + '/usedPhotosOfTheDay.txt', 'utf8', function(err, fileContents){
-//         if (err) {
-//             console.log(err);
-//         }
-//         return fileContents.split('\n');
-//     })
-
-    // .then(function(data){
-    //   console.log('readFile array', data.split('\n'))
-    //     // return data.toString().split('\n');
-    // }, function(err){
-    //   console.log('readFile err', err);
-    // })
-
-    // .then(function(linesArray){
-    //     //get last one
-    //     console.log('linesArray step', linesArray);
-    //     return linesArray[linesArray.length-1];
-    // })
 
     // .then(function (lastId) {
     //     //expect that to be only a number. Is it a string? 
