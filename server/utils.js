@@ -121,7 +121,7 @@ module.exports = {
     // const newCap = 
     schemas.Caption.create(captionPost)
       .then(function(newPost){
-        console.log('yusssss successs! new caption is ');
+        console.log('yusssss successs! new caption is ', newPost);
         cb(newPost);
       })
       .catch(function(err){
