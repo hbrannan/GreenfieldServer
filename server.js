@@ -101,13 +101,14 @@ app.get('/captions/giveusthisday', function (req, res) {
 
 //user posts caption on a photo
 app.post('/captions/giveusthisday', function (req, res) {
-	var dailyPhoto = utils.getDailyPhoto(function (val){
-		return val;
+	utils.getDailyPhoto(function (photoOrErr){
+		//utilize this cb to post 
+		if (photoOrErr instanceof Error){
+			console.log('Error retrieving daily photo: ', err);
+		} else {
+			utils.postDailyCaption(photoOrErr.id, req.body, res.json);
+		}
 	});
-	 //then get the id.
-	var dailyPhotoId = dailyPhoto.id || 1;
-	console.og(dailyPhotoId);
-	utils.postDailyCaption(dailyPhotoId, req.body, res.json);
 });
 
 //endpoint for upvoting captions: 
