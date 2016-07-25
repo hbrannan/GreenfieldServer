@@ -27,7 +27,7 @@ var updateDailyPhoto = function () {
             group: 'id'
         });
         if (nextHighest){
-            return nextHighest.dataValues.id;
+            return nextHighest;
         } else {
             //return lowest id
             return '1';
