@@ -64,7 +64,7 @@ app.post('/users/authenticated', function(req, res) {
 
 //get the daily photo
 app.get('/photos/giveusthisday', function(req, res) {
-	utils.getDailyPhoto(res.send);
+	utils.getDailyPhoto(1, res.send);
 });
 //get all of the photos
 app.get('/photos', function (req, res) {
@@ -101,7 +101,8 @@ app.get('/captions/giveusthisday', function (req, res) {
 
 //user posts caption on a photo
 app.post('/captions/giveusthisday', function (req, res) {
-	utils.getDailyPhoto(function (photoOrErr){
+	//HARDCODED
+	utils.getDailyPhoto(1, function (photoOrErr){
 		//utilize this cb to post 
 		if (photoOrErr instanceof Error){
 			console.log('Error retrieving daily photo: ', err);
