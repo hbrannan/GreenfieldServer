@@ -127,7 +127,7 @@ FROM captions AS caption WHERE caption.photo_id = 1;
     var dailyId = getDailyPhotoId;
 
     const captionPost = {
-      photoId: reqBody.photoId,
+      photoId: 1,
       userId: reqBody.userId,
       caption_top: reqBody.caption_top,
       caption_bottom: reqBody.caption_bottom,
