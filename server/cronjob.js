@@ -30,6 +30,9 @@ var updateDailyPhoto = function () {
             return nextHighest;
         } else {
             //return lowest id wrapped in an obj --HARDCODED
+    //         //if we don't, this IS at the greatest ID. SO: 
+    //         //set newPhotoOfTheDayId that is at the firstLine of usedPOD.txt
+    //           //wipe fsfile clean
             return {id:1};
         }
      })
@@ -37,12 +40,12 @@ var updateDailyPhoto = function () {
         //grab the id out of returned obj
         return nextHighestPhoto.id
      })
-     .then(function(nextHighestPhotoId){
-        console.log(nextHighestPhotoId);
+     .then(function(nextPhotoId){
+        console.log(nextPhotoId);
         //set the global var to this id
-        GLOBAL.dailyPhotoId = nextHighestPhotoId;
+        GLOBAL.dailyPhotoId = nextPhotoId;
         //AND ALSO APPEND the file
-        fs.appendFile(__dirname +'/usedPhotosOfTheDay.txt', GLOBAL.dailyPhotoId, function (err){
+        fs.appendFile(__dirname +'/usedPhotosOfTheDay.txt', GLOBAL.dailyPhotoId, 'utf8', function (err){
           if (err) {
             throw err;
           }
@@ -57,10 +60,6 @@ var updateDailyPhoto = function () {
 setInterval(updateDailyPhoto, 30000);
 
 
-    //     } else {
-    //         //if we don't, you ARE at the greatest ID. SO: 
-    //         //set newPhotoOfTheDayId that is at the firstLine of usedPOD.txt
-    //           //wipe fsfile clean
-    //     }
-    // })
+
+
 
