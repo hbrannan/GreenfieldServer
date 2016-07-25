@@ -93,7 +93,7 @@ app.get('/captions/giveusthisday', function (req, res) {
 		} else {
 		//then: get all captions of that photo!
 		console.log('photoORErr', photoOrErr.id);
-			return utils.getPhotoCaptions(photoOrErr.id, res.send);
+			return utils.getPhotoCaptions(GLOBAL.dailyPhotoId, res.send);
 		}
 	});
 	 
