@@ -34,8 +34,9 @@ var updateDailyPhoto = function () {
         }
      })
      .then(function(nextHighestPhotoId){
-        console.log('yaaaassss!Ham!', nextHighestPhotoId || nextHighestPhotoId[dataValues][id] || nextHighestPhotoId[0] ||
-            nextHighestPhotoId[0].id);
+        console.log('yaaaassss!Ham!', nextHighestPhotoId);
+        console.log('enumerable keys', Object.keys(nextHighestPhotoId));
+        console.log('type', typeof nextHighestPhotoId)
         //
      })
      .catch(function(err){
