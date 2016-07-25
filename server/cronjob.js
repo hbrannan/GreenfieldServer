@@ -29,20 +29,27 @@ var updateDailyPhoto = function () {
         if (nextHighest){
             return nextHighest;
         } else {
-            //return lowest id
-            return '1';
+            //return lowest id wrapped in an obj --HARDCODED
+            return {id:1};
         }
      })
      .then(function(nextHighestPhoto){
-        console.log('yaaaassss!Ham!', nextHighestPhoto);
+        //grab the id out of returned obj
         return nextHighestPhoto.id
-        // console.log('tryto xcss dataValues', nextHighestPhotoId.dataValues);
-        // console.log('tryto xcss dataValues', nextHighestPhotoId.id);
-        // console.log('enumerable keys', Object.keys(nextHighestPhotoId));
      })
      .then(function(nextHighestPhotoId){
         console.log(nextHighestPhotoId);
+        //set the global var to this id
+        GLOBAL.dailyPhotoId = nextHighestPhotoId;
+        //AND ALSO APPEND the file
+        fs.appendFile(__dirname +'usedPhotosOfTheDay.txt', GLOBAL.dailyPhotoId, function (err){
+          if (err) {
+            throw err;
+          }
+          console.log(GLOBAL.dailyPhotoId +' was appended to file!');
+        });
      })
+     .then(function)
      .catch(function(err){
         console.log(err);
      })
@@ -50,27 +57,7 @@ var updateDailyPhoto = function () {
 
 setInterval(updateDailyPhoto, 30000);
 
-        // console.log('dem boyz sux, amiright', db.Photo.findAll({where:['id > ?', lastId]}));
-// db.Photo.findOne({where: ['id > ?', lastId], 
-//         order:[[db.Sequelize.fn('min', db.Sequelize.col('id'))]]
-// })
 
-     // .then(function(allUnusedPhotos){
-     //    console.log(allUnusedPhotos);
-     //    var arrayOfPhotos = allUnusedPhotos[0].dataValues;
-     //    var sortedArr = arrayOfPhotos.sort(function(a,b){
-     //        return a.id - b.id;
-     //    });
-     //    return sortedArr[0];
-     // })
-        //query db for all photos w/ id greater than last fsID
-    // .then (function (allUnusedPhotos){
-    //         //if we get some back:   EG .length ? is not falsy?
-    //     if (allUnusedPhotos) {
-    //         //loop thru our results obj
-    //         //map it into an array
-    //         //sort the array
-    //         //set the newPhotoOfTheDayId of the first id in the file
     //     } else {
     //         //if we don't, you ARE at the greatest ID. SO: 
     //         //set newPhotoOfTheDayId that is at the firstLine of usedPOD.txt
@@ -78,16 +65,3 @@ setInterval(updateDailyPhoto, 30000);
     //     }
     // })
 
-    // .then(function (newPhotoOfTheDayId){
-    //     fs.appendFile('./usedPhotosOfTheDay.txt', newPhotoOfTheDayId, function (err){
-    //       if (err) {
-    //         throw err;
-    //       }
-    //       console.log('The "data to append" was appended to file!');
-    //     });
-    // });
-
-
-// module.exports = new cron('10 * * * * *', fs.appendFile('./usedPhotosOfTheDay.txt', 'see this every 10 seconds', function (err){
-//     console.log(err);
-// });
