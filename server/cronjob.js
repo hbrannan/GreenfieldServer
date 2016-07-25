@@ -49,7 +49,7 @@ var updateDailyPhoto = function () {
         //AND ALSO APPEND the file
         fs.appendFile(__dirname +'/usedPhotosOfTheDay.txt', GLOBAL.dailyPhotoId + '\n', 'utf8', function (err){
           if (err) {
-            throw err;
+            console.log('appendErr', err);
           }
           console.log(GLOBAL.dailyPhotoId +' was appended to file!');
         });
