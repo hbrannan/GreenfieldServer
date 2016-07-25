@@ -67,7 +67,8 @@ module.exports = {
   postPhoto: function (reqBody, cb) {
 
     const photoPost = {
-      user_id: reqBody.user_id,
+      userId: reqBody.user_id,
+      photoId: dailyPhotoId,
       url: reqBody.url,
       source: reqBody.source,
       hashtagId: reqBody.hashtagId,
