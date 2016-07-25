@@ -8,7 +8,7 @@ const oneDay = 86400000;
 const promisifiedRead = Promise.promisify(fs.readFile);
 
 var updateDailyPhoto = function () {
-    return promisifiedRead(__dirname + 'usedPhotosOfTheDay.txt', 'utf8')
+    return promisifiedRead(__dirname + '/usedPhotosOfTheDay.txt', 'utf8')
      .then(function (fileContents) {
         console.log('yessnHaMM');
         return fileContents.split('\n');
