@@ -50,7 +50,7 @@ app.put('/users/info', function (req, res) {
 
 //adding a new user
 app.post('/users/create', function (req, res) {
-	utils.addUser(req.body, res.status(201).json);
+	utils.addUser(req.body, res.json);
 });
 
 //checking fb access to authenticate?
