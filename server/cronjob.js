@@ -47,7 +47,7 @@ var updateDailyPhoto = function () {
         console.log('opt1', GLOBAL.dailyPhotoId);
         console.log('opt2', nextPhotoId)
         //AND ALSO APPEND the file
-        fs.appendFile(__dirname +'/usedPhotosOfTheDay.txt', GLOBAL.dailyPhotoId, 'utf8', function (err){
+        fs.appendFile(__dirname +'/usedPhotosOfTheDay.txt', GLOBAL.dailyPhotoId + '\n', 'utf8', function (err){
           if (err) {
             throw err;
           }
