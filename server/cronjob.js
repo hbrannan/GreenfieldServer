@@ -23,7 +23,14 @@ var updateDailyPhoto = function () {
         return db.Photo.findAll({where:['id > ?', lastId]});
      })
      .then(function(allUnusedPhotos){
-        console.log('yet unused photos', allUnusedPhotos);
+        var arrayOfPhotos = allUnusedPhotos.dataValues;
+        var sortedArr = arrayOfPhoto.sort(function(a,b){
+            return a.id - b.id;
+        });
+        return sortedArr[0];
+     })
+     .then(function(nextHighestPhotoId){
+        console.log(nextHighestPhotoId);
      })
      .catch(function(err){
         console.log(err);

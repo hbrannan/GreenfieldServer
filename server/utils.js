@@ -1,6 +1,6 @@
 const schemas = require('./schemas.js');
 const cronjob = require('./cronjob.js');
-GLOBAL.dailyPhotoId = 39;
+GLOBAL.dailyPhotoId = 1;
 
 module.exports = {
   addUser: function (reqBody, cb) {
