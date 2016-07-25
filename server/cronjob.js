@@ -9,7 +9,10 @@ const promisifiedRead = Promise.promisify(fs.readFile);
 
 var updateDailyPhoto = function () {
     console.log('yessnHaMM at it agin');
-    fs.readFile(__dirname + '/usedPhotosOfTheDay.txt', 'utf8', function(fileContents){
+    fs.readFile(__dirname + '/usedPhotosOfTheDay.txt', 'utf8', function(err, fileContents){
+        if (err) {
+            console.log(err);
+        }
         console.log(fileContents);
     });
 };
