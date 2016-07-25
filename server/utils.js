@@ -22,7 +22,7 @@ module.exports = {
           })
         } else {
           console.log('User already in database: ' + user.id);
-          cb({userid: user.id});
+          cb({newUserId: user.id});
         }
       })
       .catch(function(err){
