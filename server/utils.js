@@ -43,7 +43,7 @@ module.exports = {
       })
   },
   authenticateUser: function (user) {
-    schemas.User.findOne({ where: { userId }})
+    schemas.User.findOne({ where: { userId: user.id }})
   },
   getAllPhotos: function (cb) {
     schemas.Photo.findAll({})
@@ -98,7 +98,7 @@ module.exports = {
       })
   },
   getPhotoCaptions: function  (photoId, cb) {
-
+    console.log(GLOBAL.dailyPhotoId);
     schemas.Caption.findAll({ 
       where: {photoId: GLOBAL.dailyPhotoId}, 
       attributes:['caption_top', 'caption_bottom', 'likes', 'dislikes', 'font', 'id', 'photoId', 'userId']
