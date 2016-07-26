@@ -1,0 +1,1 @@
+originally this folder contained hardcoded photos. No longer in use: now using userPosts to db

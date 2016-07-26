@@ -1,15 +1,14 @@
-const server = require('../server.js'); //don't need this
+const server = require('../server.js'); 
 const Sequelize = require('sequelize');
 
-///(why) do we need this? 
+///connect to heroku postgres server via its user & url
+//add dialect options to enable connection
 const sequelize = new Sequelize('postgres://qntzeozetttxxe:JDkRS8aTusHyPjDmp-YcWCK2qN@ec2-54-243-249-154.compute-1.amazonaws.com:5432/dfbtc6j4b2mtgi', {
 	dialect: 'postgres',
 	dialectOptions: {
 		ssl: true
 	}
 });
-
-
 ////////////POSTGRES Tables/////////
 ///////////ORM: sequelize////////////
 
@@ -84,18 +83,21 @@ const Caption = sequelize.define('caption', {
 		timestamps: false
   });
 
-//WE MAY NOT NEED TO DEFINE RELATIONSHIPS AS THESE ARE BEING DEFINED IN POSTICO. 
-//so far as I can tell, this does not effect our error, but also causes no additional errors. 
-//I propose we leave it out until we can find a need to reintroduce it :)
-/*source --- target*/
-// User.hasMany(Caption);
+// WE BEGAN BY DEFINING RELATIONSHIPS, BUT HAVE COMMENTED THEM OUT
+// AS THESE ARE BEING DEFINED IN POSTICO AND WE APPEAR TO HAVE CONFLICTS 
+// WHEN USING BOTH MODALITIES SIMULTANEOUSLY 
+
+//read as:
+   /*sequleize 'source' --- sequelize 'target'*/
+
 // //DEFINE CAPTION RELATIONSHIPS 
+// User.hasMany(Caption);
 // Caption.belongsTo(User);
 // // Caption.belongsTo(Photo);
 // //DEFINE PHOTO RELATIONSHIPS 
 // Photo.hasMany(Caption);
 // Photo.hasMany(Hashtag);
-/////may want Photo to belong to user as an extension !!
+/////test/ implement Photo.belongsTo(User) as an extension !!
 sequelize.sync();
 
 
@@ -104,5 +106,5 @@ module.exports = {
 	Photo: Photo,
 	Caption: Caption,
 	sequelize: sequelize
-	// Hashtag: Hashtag
+	// Hashtag: Hashtag -- not using hashtag for MVP
 };

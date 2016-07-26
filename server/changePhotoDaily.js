@@ -1,7 +1,13 @@
 // This page is commented out as we weren't able to successfully produce
 // this stretch feature in time. 
 // It is a daily-repeating function that updates the daily photo
-//the daily photo should be in the DB
+//for production, GLOBAL.dailyPhotoId should be moved to (and fetched, updated from) within the DB
+
+
+
+
+
+
 
 // var Promise = require('bluebird');
 // const cron = require('cron').CronJob;

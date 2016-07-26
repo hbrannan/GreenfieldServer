@@ -3,6 +3,7 @@ const express = require('express');
 const utils = require('./server/utils.js');
 const bodyParser = require('body-parser');
 const altPort = 3000;
+//stretch: add finish out setInterval dailyPhoto update, transition it to cronJob
 // const cronJob = require('./server/cronjob.js');
 
 
@@ -12,7 +13,7 @@ app.listen(process.env.PORT || altPort, function () {
 	console.log('Server listening at ' + altPort);
 });
 
-
+//SERVE UP FILES
 app.use(express.static(__dirname + '/public'));
 app.use('/css', express.static(__dirname + '/public/css'));
 app.use('/font-awesome', express.static(__dirname + '/public/font-awesome'));
@@ -20,15 +21,14 @@ app.use('/fonts', express.static(__dirname + '/public/fonts'));
 app.use('/img', express.static(__dirname + '/public/img'));
 app.use('/js', express.static(__dirname + '/public/js'));
 
-
 /////////MIDDLEWARE//////////
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(require('express-promise')());
 
-//removed this stretch feature as not complete
-// cronJob.start();
+//removed this stretch feature as not complete, would sync with cronJob file via
+//reference to cronJob, thus executing invoked functions within cronJob
 // cronJob;
 ///////////ROUTES///////////
 
