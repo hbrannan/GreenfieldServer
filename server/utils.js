@@ -99,7 +99,10 @@ module.exports = {
   },
   getPhotoCaptions: function  (photoId, cb) {
 
-    schemas.Caption.findAll({ where: {photoId: dailyPhotoId}})
+    schemas.Caption.findAll({ 
+      where: {photoId: dailyPhotoId}, 
+      attributes:['caption_top', 'caption_bottom', 'likes', 'dislikes', 'font', 'id', 'photoId', 'userId']
+    })
       .then(function (captions) {
         cb(captions);
       })
