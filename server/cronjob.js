@@ -41,21 +41,24 @@ var updateDailyPhoto = function () {
         return nextHighestPhoto.id
      })
      .then(function(nextPhotoId){
-        console.log(nextPhotoId);
         //set the global var to this id
         GLOBAL.dailyPhotoId = nextPhotoId;
+        //check the filepath
+        console.log(__dirname +'/usedPhotosOfTheDay.txt');
         //AND ALSO APPEND the file
-        fs.appendFile(__dirname +'/usedPhotosOfTheDay.txt', GLOBAL.dailyPhotoId + '\n', 'utf8', function (err){
-          if (err) {
-            console.log('appendErr', err);
-          }
-          console.log(GLOBAL.dailyPhotoId +' was appended to file!');
-        });
+        fs.appendFile(__dirname +'/usedPhotosOfTheDay.txt', GLOBAL.dailyPhotoId + '\n');
      })
      .catch(function(err){
         console.log(err);
      })
 };
+
+// 'utf8', function (err){
+//           if (err) {
+//             console.log('append process err', err);
+//           }
+//           console.log(GLOBAL.dailyPhotoId +' was appended to file!');
+//         }
 
 setInterval(updateDailyPhoto, 30000);
 
