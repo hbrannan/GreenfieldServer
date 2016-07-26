@@ -56,7 +56,7 @@ module.exports = {
   },
   getDailyPhoto: function (cb) {
     //RIGHT NOW, IS HARDCODED!!! need to access the dailyPhotoId global variable
-    schemas.Photo.findOne({ where: { id: dailyPhotoId }})
+    schemas.Photo.findOne({ where: { id: GLOBAL.dailyPhotoId }})
     .then(function(photo) {
        cb(photo.dataValues);
     }).catch( function(err) {
@@ -68,7 +68,7 @@ module.exports = {
 
     const photoPost = {
       userId: reqBody.user_id,
-      photoId: dailyPhotoId,
+      photoId: GLOBAL.dailyPhotoId,
       url: reqBody.url,
       source: reqBody.source,
       hashtagId: reqBody.hashtagId,
@@ -100,7 +100,7 @@ module.exports = {
   getPhotoCaptions: function  (photoId, cb) {
 
     schemas.Caption.findAll({ 
-      where: {photoId: dailyPhotoId}, 
+      where: {photoId: GLOBAL.dailyPhotoId}, 
       attributes:['caption_top', 'caption_bottom', 'likes', 'dislikes', 'font', 'id', 'photoId', 'userId']
     })
       .then(function (captions) {
@@ -114,7 +114,7 @@ module.exports = {
   postDailyCaption: function (photoId, reqBody, cb) {
     console.log('charliez req body', reqBody);
     const captionPost = {
-      photoId: dailyPhotoId,
+      photoId: GLOBAL.dailyPhotoId,
       userId: reqBody.userId,
       caption_top: reqBody.caption_top,
       caption_bottom: reqBody.caption_bottom,
