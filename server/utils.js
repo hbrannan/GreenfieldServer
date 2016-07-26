@@ -1,6 +1,14 @@
 const schemas = require('./schemas.js');
+//remove cronJob for now
 // const cronjob = require('./cronjob.js');
 GLOBAL.dailyPhotoId = 1;
+
+/*
+This file, and server.js have remnants of transitioning from hardcoded daily photo to 
+referencing dailyPhoto ID as a global variable. 
+
+This is realted to changeDailyPhoto.js which is almost-complete functionality for this extension
+*/
 
 module.exports = {
   addUser: function (reqBody, cb) {
@@ -56,7 +64,6 @@ module.exports = {
       });
   },
   getDailyPhoto: function (cb) {
-    //RIGHT NOW, IS HARDCODED!!! need to access the dailyPhotoId global variable
     schemas.Photo.findOne({ where: { id: GLOBAL.dailyPhotoId }})
     .then(function(photo) {
        cb(photo.dataValues);
