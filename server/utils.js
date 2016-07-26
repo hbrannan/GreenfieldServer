@@ -1,5 +1,5 @@
 const schemas = require('./schemas.js');
-const cronjob = require('./cronjob.js');
+// const cronjob = require('./cronjob.js');
 GLOBAL.dailyPhotoId = 1;
 
 module.exports = {
