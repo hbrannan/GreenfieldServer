@@ -19,6 +19,7 @@ module.exports = {
           const newUser = schemas.User.build(userPost);
           newUser.save()
           .then(function(newUser) {
+            console.log(newUser);
             cb({newUserId: newUser.dataValues.id});
           })
         } else {
