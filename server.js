@@ -3,7 +3,7 @@ const express = require('express');
 const utils = require('./server/utils.js');
 const bodyParser = require('body-parser');
 const altPort = 3000;
-const cronJob = require('./server/cronjob.js');
+// const cronJob = require('./server/cronjob.js');
 
 
 ////CONNECT TO SERVER
@@ -27,8 +27,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(require('express-promise')());
 
+//removed this stretch feature as not complete
 // cronJob.start();
-cronJob;
+// cronJob;
 ///////////ROUTES///////////
 
 ///HOMEPAGE
